@@ -61,7 +61,7 @@ class Blogs extends React.Component {
         <div>
           <div className="textcenter showBlogHead600">
             <div> A Series of</div>
-            <div>Accidental Blogs</div>
+            <div>startling Reads</div>
           </div>
           <div className="mh90vh blog marginT15">
             <div className="inbl mh90vh" />
