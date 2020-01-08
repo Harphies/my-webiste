@@ -3,20 +3,28 @@ module.exports = {
     title: `Dhilip's Journey | dhilipkmr`,
     description: `Dhilip's Journey | dhilipkmr`,
     author: `dhilipkmr`,
-    keywords: ['dhilipkmr', 'dhilip dev', 'dev dhilip', 'dhilip blog', 'react blogs', 'frontend blogs'],
-    ogType: 'website',
-    ogUrl: 'https://www.dhilipkmr.dev',
-    lang: 'en',
-    image: 'https://raw.githubusercontent.com/dhilipkmr/webapp-samples/master/images/website/profilePic.png'
+    keywords: [
+      "dhilipkmr",
+      "dhilip dev",
+      "dev dhilip",
+      "dhilip blog",
+      "react blogs",
+      "frontend blogs",
+    ],
+    ogType: "website",
+    ogUrl: "https://www.dhilipkmr.dev",
+    lang: "en",
+    image:
+      "https://raw.githubusercontent.com/dhilipkmr/webapp-samples/master/images/website/profilePic.png",
   },
-  pathPrefix: '/',
+  pathPrefix: "/profle",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
         path: `${__dirname}/src/pages`,
-      }
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -38,7 +46,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          'gatsby-remark-copy-images',
+          "gatsby-remark-copy-images",
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -46,19 +54,19 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: "gatsby-remark-prismjs",
             options: {
-              inlineCodeMarker: '÷',
+              inlineCodeMarker: "÷",
             },
           },
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: '_blank',
-            }
-          }
-        ]
-      }
-    }
-  ]
+              target: "_blank",
+            },
+          },
+        ],
+      },
+    },
+  ],
 }
