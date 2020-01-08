@@ -44,7 +44,7 @@ class AboutMe extends React.Component {
     const { mounted } = this.state
     return (
       <Layout className="mh100" theme={this.state.theme} themer={this.themer}>
-        <SEO title="Harphies Jounrey  aboutme" />
+        <SEO title="Harphies Journal | harphies  aboutme" />
         <div>
           <div className="mw960">
             <div

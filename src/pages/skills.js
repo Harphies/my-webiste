@@ -1,51 +1,51 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
-import FadeIn from '../components/FadeIn';
-import {technicalSkills1, technicalSkills2} from '../components/constants';
-import SEO from '../components/seo';
+import React from "react"
+import PropTypes from "prop-types"
+import Layout from "../components/Layout"
+import FadeIn from "../components/FadeIn"
+import { technicalSkills1, technicalSkills2 } from "../components/constants"
+import SEO from "../components/seo"
 
-class Skills extends React.Component{
+class Skills extends React.Component {
   constructor(props) {
-    super(props);
-    this.themer = this.themer.bind(this);
-    this.getPrevTheme = this.getPrevTheme.bind(this);
-    this.renderHalf = this.renderHalf.bind(this);
+    super(props)
+    this.themer = this.themer.bind(this)
+    this.getPrevTheme = this.getPrevTheme.bind(this)
+    this.renderHalf = this.renderHalf.bind(this)
     this.state = {
-      theme: null
+      theme: null,
     }
   }
 
   componentDidMount() {
-    const theme = this.getPrevTheme();
-    this.setState({ theme });
+    const theme = this.getPrevTheme()
+    this.setState({ theme })
     setTimeout(() => {
-      this.setState({loadWidth: true});
-    }, 500);
+      this.setState({ loadWidth: true })
+    }, 500)
   }
 
   getPrevTheme() {
-    return window.__dkBlogTheme;
+    return window.__dkBlogTheme
   }
-  
+
   themer() {
     /* All other calls to themer */
-    const oldTheme = this.state.theme;
-    const newTheme = (oldTheme === 'dark') ? 'light' : 'dark';
-    if (typeof(window) !== 'undefined') {
-      this.setState({ theme: newTheme});
-      document.body.className = newTheme;
-      window.__dkBlogTheme = newTheme;
-      window.localStorage.setItem('dkBlogTheme', newTheme);
+    const oldTheme = this.state.theme
+    const newTheme = oldTheme === "dark" ? "light" : "dark"
+    if (typeof window !== "undefined") {
+      this.setState({ theme: newTheme })
+      document.body.className = newTheme
+      window.__dkBlogTheme = newTheme
+      window.localStorage.setItem("dkBlogTheme", newTheme)
     }
   }
 
   renderHalf(second) {
-    const {loadWidth} = this.state;
-    const toMap = second ? technicalSkills2 : technicalSkills1;
-    return(
+    const { loadWidth } = this.state
+    const toMap = second ? technicalSkills2 : technicalSkills1
+    return (
       <div>
-        {toMap.map((skill) => {
+        {toMap.map(skill => {
           return (
             <div className="pad5 " key={skill[0]}>
               <div className="dflex flexspacebetween">
@@ -53,8 +53,11 @@ class Skills extends React.Component{
                 <div>{skill[1]}</div>
               </div>
               <div className="paddingTB10">
-                <div className="whiteborder  posRel marginTB5"></div>
-                <div className=" posRel blueborder zeroWidthAnimation" style={{bottom: '2px',width: (!loadWidth ? '0' : skill[1])}}></div>
+                <div className="whiteborder  posRel marginTB5" />
+                <div
+                  className=" posRel blueborder zeroWidthAnimation"
+                  style={{ bottom: "2px", width: !loadWidth ? "0" : skill[1] }}
+                />
               </div>
             </div>
           )
@@ -65,29 +68,25 @@ class Skills extends React.Component{
   render() {
     return (
       <Layout className="mh100" theme={this.state.theme} themer={this.themer}>
-        <SEO title="Dhilip's Jounrey | dhilipkmr skills"/>
+        <SEO title="harphies Journal | harphies skills" />
         <div>
           <div className="mh90vh">
             <div className="width100 textcenter oh">
               <FadeIn className=" fs35 fadeInWord ">Technical Skills</FadeIn>
             </div>
             <div className="skillCard marginT50">
-              <div className="widthhalf">
-                {this.renderHalf()}
-              </div>
-              <div className="widthhalf">
-                {this.renderHalf(true)}
-              </div>
+              <div className="widthhalf">{this.renderHalf()}</div>
+              <div className="widthhalf">{this.renderHalf(true)}</div>
             </div>
           </div>
         </div>
       </Layout>
-    );
+    )
   }
 }
 
 Skills.propTypes = {
   data: PropTypes.object,
-};
+}
 
-export default Skills;
+export default Skills
