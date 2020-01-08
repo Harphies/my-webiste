@@ -1,21 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Dhilip's Journey | dhilipkmr`,
-    description: `Dhilip's Journey | dhilipkmr`,
-    author: `dhilipkmr`,
+    title: `Harphies's Journey `,
+    description: `Harphies Journal | harphies`,
+    author: `Harphies`,
     keywords: [
-      "dhilipkmr",
-      "dhilip dev",
-      "dev dhilip",
-      "dhilip blog",
+      "harphies",
+      "harphies dev",
+      "dev harphies",
+      "harphies blog",
       "react blogs",
       "frontend blogs",
     ],
     ogType: "website",
-    ogUrl: "https://www.dhilipkmr.dev",
+    ogUrl: "https://harphies.tech/",
     lang: "en",
     image:
-      "https://raw.githubusercontent.com/dhilipkmr/webapp-samples/master/images/website/profilePic.png",
+      "https://raw.githubusercontent.com/harphies/webapp-samples/master/images/website/profilePic.jpeg",
   },
   pathPrefix: "/profle",
   plugins: [
@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Dhilip's Journey`,
-        short_name: `Dhilip's Journey`,
+        name: `harphies Journey`,
+        short_name: `harphies Journey`,
         start_url: `/`,
         background_color: `#1f1f1f`,
         theme_color: `#235bc1`,

@@ -10,7 +10,16 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title, ogUrl, ogType, image }) {
+function SEO({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  ogUrl,
+  ogType,
+  image,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,52 +27,52 @@ function SEO({ description, lang, meta, keywords, title, ogUrl, ogType, image })
           siteMetadata {
             title
             description
-            author,
-            keywords,
-            ogUrl,
-            ogType,
-            image,
+            author
+            keywords
+            ogUrl
+            ogType
+            image
             lang
           }
         }
       }
     `
-  );
+  )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaTitle = title || site.siteMetadata.title;
-  const metaType = ogType || site.siteMetadata.ogType;
-  const metaUrl = ogUrl || site.siteMetadata.ogUrl;
-  const metaImage = image || site.siteMetadata.image;
-  const metaLang = site.siteMetadata.lang || 'en';
-  console.log('image', image, metaImage);
+  const metaTitle = title || site.siteMetadata.title
+  const metaType = ogType || site.siteMetadata.ogType
+  const metaUrl = ogUrl || site.siteMetadata.ogUrl
+  const metaImage = image || site.siteMetadata.image
+  const metaLang = site.siteMetadata.lang || "en"
+  console.log("image", image, metaImage)
   return (
     <Helmet
       htmlAttributes={{
-        lang: metaLang
+        lang: metaLang,
       }}
-      title = {metaTitle}
+      title={metaTitle}
       meta={[
         { name: `description`, content: metaDescription },
         { property: `og:title`, content: metaTitle },
         { property: `og:description`, content: metaDescription },
         { property: `og:type`, content: metaType },
         { property: `og:url`, content: metaUrl },
-        { property: 'og:image', content: metaImage },
+        { property: "og:image", content: metaImage },
         { property: `twitter:title`, content: metaTitle },
-        { property: 'twitter:description',content: metaDescription },
-        { name: 'robots', content: 'index, follow'},
-        { rel: 'canonical', href: 'https://www.dhilipkmr.dev/'}
-      ].concat(
-        keywords.length > 0 ?
-        {
-          name: `keywords`,
-          content: keywords.join(`, `),
-        }
-        : []
+        { property: "twitter:description", content: metaDescription },
+        { name: "robots", content: "index, follow" },
+        { rel: "canonical", href: "https://harphies.tech/" },
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `),
+              }
+            : []
         )
-        .concat(meta)
-      }
+        .concat(meta)}
     />
   )
 }
