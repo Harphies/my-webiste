@@ -1,26 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import FadeIn from './FadeIn';
-import { FaTwitter, FaDev, FaGithub, FaLinkedinIn, FaGlobe } from 'react-icons/fa';
+import React from "react"
+import PropTypes from "prop-types"
+import FadeIn from "./FadeIn"
+import {
+  FaTwitter,
+  FaDev,
+  FaGithub,
+  FaLinkedinIn,
+  FaGlobe,
+} from "react-icons/fa"
 
-let CONTACT_DETAILS = [];
-CONTACT_DETAILS.push(['https://github.com/dhilipkmr',       <FaGithub/>,      'Github']);             // GITHUB_URL
-CONTACT_DETAILS.push(['https://linkedin.com/in/dhilipkmr/', <FaLinkedinIn/>,  'LinkedIn']);           // LINKEDIN_URL
-CONTACT_DETAILS.push(['https://dev.to/dhilipkmr',           <FaDev/>,         'Dev']);                   // DEV URL
-CONTACT_DETAILS.push(['https://twitter.com/dhilipkmr_',     <FaTwitter/>,     'Twitter']);            // TWITTER_URL
-CONTACT_DETAILS.push(['https://dhilipkmr.surge.sh',         <FaGlobe/>,       'Website']);            // WEB_URL
+let CONTACT_DETAILS = []
+CONTACT_DETAILS.push(["https://github.com/Harphies", <FaGithub />, "Github"]) // GITHUB_URL
+CONTACT_DETAILS.push([
+  "https://www.linkedin.com/in/olalekan-taofeek/",
+  <FaLinkedinIn />,
+  "LinkedIn",
+]) // LINKEDIN_URL
+CONTACT_DETAILS.push(["https://dev.to/harphies", <FaDev />, "Dev"]) // DEV URL
+CONTACT_DETAILS.push(["https://twitter.com/harphies", <FaTwitter />, "Twitter"]) // TWITTER_URL
+CONTACT_DETAILS.push(["https://harphies.tech/", <FaGlobe />, "Website"]) // WEB_URL
 
-const ContactMe = ({theme}) => {
-  return(
+const ContactMe = ({ theme }) => {
+  return (
     <div className="width100 textcenter padT10 oh ">
-      <FadeIn style={{ animationDelay: '0.25s'}}>
-        {CONTACT_DETAILS.map((contactItem) => {
-          const url = contactItem[0];
-          const ICON = contactItem[1];
-          const title = contactItem[2];
+      <FadeIn style={{ animationDelay: "0.25s" }}>
+        {CONTACT_DETAILS.map(contactItem => {
+          const url = contactItem[0]
+          const ICON = contactItem[1]
+          const title = contactItem[2]
           return (
             <div key={title} className=" marginLR15 inbl scaleOnHover ico25">
-              <a href={url} title={title} target="_blank" rel="noopener noreferrer">
+              <a
+                href={url}
+                title={title}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {ICON}
               </a>
             </div>
@@ -28,11 +43,11 @@ const ContactMe = ({theme}) => {
         })}
       </FadeIn>
     </div>
-  );
+  )
 }
 
 ContactMe.propTypes = {
-  theme: PropTypes.string
-};
+  theme: PropTypes.string,
+}
 
-export default ContactMe;
+export default ContactMe
