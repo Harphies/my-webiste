@@ -99,10 +99,7 @@ class Blogs extends React.Component {
                     </div>
                     <div
                       style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
+                        display: "flex", justifyContent: "space-between"}} >
                       <div
                         className=" op0 opAnimator white padL10"
                         style={{ fontSize: "13px", animationDelay: "0.3s" }}
