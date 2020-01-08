@@ -38,7 +38,7 @@ module.exports = {
         background_color: `#1f1f1f`,
         theme_color: `#235bc1`,
         display: `minimal-ui`,
-        icon: `src/assets/profilePic.png`,
+        icon: `src/assets/profilePic.jpeg`,
         theme_color_in_head: false,
       },
     },
