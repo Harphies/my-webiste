@@ -181,7 +181,7 @@ export const introduction = {
     "* What other things I do you ask?",
     "* Well...",
     "* I love watching football.",
-    "* At times I watch Sci-fi movies.",
+    "* At times I watch sci-fi movies.",
     "* Well that's pretty much about me!",
   ],
 }
