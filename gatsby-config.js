@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Harphies's Journey `,
+    title: `Harphies Journal `,
     description: `Harphies Journal | harphies`,
     author: `Harphies`,
     keywords: [
