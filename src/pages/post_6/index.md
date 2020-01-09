@@ -1,5 +1,5 @@
 ---
-title: "Data to Implement AI
+title: "Data to Implement AI"
 description: "Some open source data to have hands on experience with AI"
 path: "/blogs/array-map"
 date: "2019-03-26"
