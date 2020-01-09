@@ -1,11 +1,11 @@
 ---
 path: "/blogs/scroll-indicator"
 date: "2019-05-01"
-title: "The Edge Device"
-author: "Dhilip kumar"
+title: "Netflix Metaflow"
+author: "Olalekan Taofeek"
 timeToRead: "2"
-smallTitle: "Edge Computing"
-description: "Implementing Edge devices with a mininal resources using pretrained models"
+smallTitle: "Netflix Metaflow"
+description: "Netflix metaflow for automating the machine learning pipeline from development to deployment."
 postNum: "10"
 ogimage: "./cover_10.png"
 ---
@@ -13,73 +13,7 @@ ogimage: "./cover_10.png"
 <img src="./cover_10.png"/>
 <br/>
 
-**Scroll Indicator** is basically a line which fills up based on how much the user has scrolled in the page.They are usually positioned at the Top of the page.
+Ever worked on #machinelearning projects from development to production would realize the pipeline across several projects are repetitive and it’s dynamic for different machine learning problems such as features engineering,model selection, hyper parameters optimization, model evaluation, data augmentation,model threshold calibration, the entire training workflow and packages management during production.
 
-![](https://media.giphy.com/media/vvWhQsVAFkyisScAsM/giphy-downsized-large.gif)
-
-**Output:**
-
-Checkout the output [here](https://scrollindicator.netlify.com/)
-
-![](1.gif)
-
-##Let's get to Coding:
-
-```jsx
-<body>
-  <div class="line" id="scrollIndicator" />
-  <div>// ... some code</div>
-</body>
-```
-
-All we did in the above snippet was adding a small scrollIndicator `<div>`.
-
-Before we jump into how we can implement scroll indicator it is necessary to understand few `window` properties related to scrolling.
-
-```css
-.line {
-  background: #038eff;
-  height: 5px;
-  border-radius: 3px;
-  width: 0%;
-  position: fixed;
-  top: 0;
-}
-```
-
-Above shows the CSS required for plotting the line. It should initially be at width 0. Then increase it based on the percentage of scroll.
-
-##Window's Scroll related Properties:
-
-- `window.innerHeight` - Height of the viewable portion of the browser.(Eg: 640)
-- `document.body.scrollHeight` - Height of the entire webPage.
-- `window.scrollY` - how many pixels the user has scrolled down so far. It is `0` on **page load** and it increases as the user scrolls down.
-
-```js
-const scrollIndicatorElt = document.getElementById("scrollIndicator")
-const maxScrollableHeight = document.body.scrollHeight - window.innerHeight
-window.addEventListener("scroll", moveScrollIndicator)
-```
-
-- Get the `scrollIndicator` node by its id.The Scroll line appears in this element.
-- Find `maxScrollableHeight` which specifies the number of pixels the user can scroll.To identify this we find the difference between `document.body.scrollHeight` and `window.innerHeight`
-- Attach an Event listener to `scroll`.
-
-```js
-function moveScrollIndicator() {
-  const percentage = (window.scrollY / maxScrollableHeight) * 100
-  scrollIndicatorElt.style.width = percentage + "%"
-}
-```
-
-- `moveScrollIndicator` function gets executed when scroll event is fired.
-- `percentage` is the width of the `scrollIndicator` element.
-- `percentage` is calculated as the ratio of **Pixels scrolled(`window.scrollY`)** by the user to **total Scrollable Pixels (maxScrollableHeight)**
-
-![](https://media.giphy.com/media/cGtVFd33eEDFEcckiC/giphy.gif)
-
-Check the output [here](https://scrollindicator.netlify.com/). [Repo Link](https://github.com/dhilipkmr/scrollIndicator)
-
-My [Website](https://www.dhilipkmr.dev), [blogs](https://dev.to/dhilipkmr) and [Twitter](https://twitter.com/dhilipkmr_)
-
-That's All Folks!
+Here Netflix comes to a rescue with Metaflow.org,
+Netflix Metaflow promise data scientists high productivity by shorten the time spent on model development,feature engineering,model Operations,versioning,Architecture,Job scheduler,compute resources allocation and Data warehouse.
