@@ -1,31 +1,24 @@
 ---
 path: "/blogs/optional-chaining"
 date: "2019-08-15"
-title: "Understanding Optional Chaining"
-author: "Dhilip kumar"
+title: "Machine unlearning"
+author: "Olalekan Taofeek"
 timeToRead: "1"
-smallTitle: "Optional Chaining"
-description: "Understanding Optional Chaining in javascript"
+smallTitle: "Machine unlearning"
+description: "Understanding machine unlearning and how it influence models performance in production."
 postNum: "14"
-ogimage: './cover_14.png'
+ogimage: "./cover_14.jpg"
 ---
-![](https://thepracticaldev.s3.amazonaws.com/i/23q1qkg3utg8f2l36rhf.jpg)
 
-What if I tell you that the following snippet is Possible in javascript?
+<img src="./cover_14.jpg"/>
+<br/>
 
-```jsx
+**GDPR** and other data privacy policies is something that needs to be revisited among the #deeplearning researchers.
 
-const hasWorld = response && response.data && response.data.msg && response.data.msg.includes('world');
+We often talk about #machinelearning and we don’t quite discuss about _machine unlearning_, right to be forgotten” policies might actually pose more challenges that would cause many organizations to enforce their deployed models into production to unlearn suppose the key features the model learned from is revoked by the user.
 
-const hasWorld = response?.data?.msg?.includes('world');
-```
+Machine learning production deployment pipeline never considered unlearning strategy except they relied heavily on “batch retraining” which isn’t efficient for a large datasets and training time.
 
-This way of checking the property of an object known as Optional Chaining.
+I found this paper interesting for anyone or organization planning to incorporate some unlearning strategies for their model.
 
-This is currently in Stage 3 `tc39`, however with `babel` we will be able to use it in our code right now by adding the following plugin `@babel/plugin-proposal-optional-chaining` to your config file for babel v7+.
-
-Below is the Transpiled Babel Code Example with Optional Chaining.
-
-[Transpiled code Example](http://bit.ly/optional-chaining)
-
-Thats all Folks!!!
+https://lnkd.in/dXDPbcg
