@@ -156,12 +156,12 @@ export const technicalSkills1 = [
   ["pytorch", "75%"],
   ["Raspberry Pi", "80%"],
   ["Circuit designs", "90%"],
-  ["embedded systems", "85%"],
-  ["firmware", "80%"],
+  ["Embedded systems", "85%"],
+  ["Firmware", "80%"],
 ]
 
 export const technicalSkills2 = [
-  ["python", "85%"],
+  ["Python", "85%"],
   ["Javascript", "75%"],
   ["C/C++", "70%"],
   ["NodeJS", "80%"],
