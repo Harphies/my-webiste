@@ -12,7 +12,7 @@ postNum: "18"
 <img src="./cover_18.png"/>
 <br/>
 
-**Machine Learning workflow** Machine learning workflow are the series fo steps required in executing a machine learning related tasks from concept to production deployment.
+**Machine Learning workflow** Machine learning workflow are the series of steps required in executing a machine learning related tasks from concept to production deployment.
 
 Below are some of the essential machine learning workflow;
 

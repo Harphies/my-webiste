@@ -166,7 +166,7 @@ export const technicalSkills2 = [
   ["C/C++", "70%"],
   ["NodeJS", "80%"],
   ["ReactJS", "70%"],
-  ["pytorch", "80%"],
+  ["Django", "65%"],
 ]
 
 export const introduction = {
