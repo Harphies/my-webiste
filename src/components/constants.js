@@ -23,7 +23,7 @@ export const portfolioDetails = {
       [
         "PACKAGES",
         "https://github.com/Harphies/packages",
-        "A curated list data science, machine learning, deep learning and reinforcement learning packages",
+        "A curated list of data science, machine learning, deep learning and reinforcement learning packages",
         "Dec, 2019",
       ],
       [
@@ -64,7 +64,7 @@ export const portfolioDetails = {
       [
         "Prediction Models",
         "",
-        "Device accurcy optimization with a prediction model Integration on the edge for higher efficiency",
+        "Device accuracy optimization with a prediction model Integration on the edge for higher efficiency",
         "May - Jun, 2019",
       ],
     ],
@@ -167,6 +167,7 @@ export const technicalSkills2 = [
   ["NodeJS", "80%"],
   ["ReactJS", "70%"],
   ["Django", "65%"],
+  ["Java", "55%"],
 ]
 
 export const introduction = {
@@ -174,7 +175,7 @@ export const introduction = {
     "* Hello there!",
     "* I'm Olalekan Taofeek, as you all know already ❤",
     "* I am an Innovator, working as a Technical Lead and Engineer at TREPLABS.",
-    "* I use python, Javascript, C/C++ and NodeJs to create Intelligent machines.",
+    "* I use python, Javascript, C/C++ and NodeJs to create Intelligent and smart machines.",
     "* I also Blog about some Interesting (Technical) stuffs that I know quite well on LinkedIn",
     "* I have few Open source projects willing to share with the community",
     "* I love reading books mostly on human Psychology, Neuroscience, Innovation process and Businness strategy.",
