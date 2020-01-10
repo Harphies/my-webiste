@@ -1,5 +1,5 @@
 ---
-path: "/blogs/optional-chaining"
+path: "/blogs/machine-unlearn"
 date: "2019-08-15"
 title: "Machine unlearning"
 author: "Olalekan Taofeek"
