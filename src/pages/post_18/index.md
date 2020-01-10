@@ -6,7 +6,7 @@ author: "Olalekan Taofeek"
 timeToRead: "3"
 smallTitle: "Machine learning Workflow"
 description: "machine learning worflow."
-postNum: "17"
+postNum: "18"
 ---
 
 <img src="./cover_18.png"/>
@@ -17,7 +17,7 @@ postNum: "17"
 Below are some of the essential machine learning workflow;
 
 - Input
-  - data source i
+  - data source 1
   - data source 2
 - Data preprocessing
   - Database merge
