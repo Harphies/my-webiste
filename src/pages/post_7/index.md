@@ -1,5 +1,5 @@
 ---
-path: "/blogs/cursor-imitator"
+path: "/blogs/ai-possibilities"
 date: "2019-04-01"
 title: "Edge Cases"
 author: "Olalekan Taofeek"

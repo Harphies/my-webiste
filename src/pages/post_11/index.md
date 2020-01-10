@@ -1,5 +1,5 @@
 ---
-path: "/blogs/js-split"
+path: "/blogs/ai-js"
 date: "2019-05-08"
 title: "Javascript AI"
 author: "Olalekan Taofeek"

@@ -1,5 +1,5 @@
 ---
-path: "/blogs/textcenter ico24 themeColor marginB20loading-shimmer"
+path: "/blogs/automl"
 date: "2019-04-19"
 title: "AutoML!"
 author: "Olalekan Taofeek"

@@ -1,5 +1,5 @@
 ---
-path: "/blogs/imdb-extension-part-2"
+path: "/blogs/ai-explosion"
 date: "2019-02-07"
 title: "AI Explosion"
 author: "Olalekan Taofeek"

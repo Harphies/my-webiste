@@ -1,5 +1,5 @@
 ---
-path: "/blogs/memoization"
+path: "/blogs/ai-revolution"
 date: "2019-04-21"
 title: "AI Revolution"
 author: "Olalekan Taofeek"

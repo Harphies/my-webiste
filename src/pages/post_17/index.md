@@ -1,5 +1,5 @@
 ---
-path: "/blogs/this-in-js"
+path: "/blogs/ml-algorithms"
 date: "2019-10-26"
 title: "Machine Learning Algorithms"
 author: "Olalekan Taofeek"

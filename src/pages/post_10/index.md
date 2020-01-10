@@ -1,5 +1,5 @@
 ---
-path: "/blogs/scroll-indicator"
+path: "/blogs/netflix-metaflow"
 date: "2019-05-01"
 title: "Netflix Metaflow"
 author: "Olalekan Taofeek"

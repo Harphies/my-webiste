@@ -1,5 +1,5 @@
 ---
-path: "/blogs/sliding-window-infinite-scroll"
+path: "/blogs/reinforcement-ml"
 date: "2019-08-06"
 title: "Reinforcement Learning"
 author: "Olalekan Taofeek"

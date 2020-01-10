@@ -1,7 +1,7 @@
 ---
 title: "Data to Implement AI"
 description: "Some open source data to have hands on experience with AI"
-path: "/blogs/array-map"
+path: "/blogs/ai-data"
 date: "2019-03-26"
 author: "Olalekan Taofeek"
 smallTitle: "Data for AI"

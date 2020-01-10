@@ -1,5 +1,5 @@
 ---
-path: "/blogs/noopener"
+path: "/blogs/nlp"
 date: "2019-08-17"
 title: "Understanding NLP Pre-trained models"
 author: "Olalekan taofeek"

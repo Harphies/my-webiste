@@ -1,5 +1,5 @@
 ---
-path: "/blogs/max-path-2d-matrix"
+path: "/blogs/GTN"
 date: "2019-06-06"
 title: "Generative Teaching Network"
 author: "Olalekan Taofeek"

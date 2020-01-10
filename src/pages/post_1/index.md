@@ -1,5 +1,5 @@
 ---
-path: "/blogs/ripple-effect"
+path: "/blogs/ai-use"
 # date: "Jan 23, 2019"
 date: "2019-01-23"
 title: "AI Phases"

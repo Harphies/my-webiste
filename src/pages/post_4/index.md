@@ -1,5 +1,5 @@
 ---
-path: "/blogs/introduction-to-react-hooks"
+path: "/blogs/innovation"
 date: "2019-03-10"
 title: "Innovation Formula"
 author: "Olalekan Taofeek"

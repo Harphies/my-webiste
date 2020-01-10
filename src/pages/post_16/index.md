@@ -1,5 +1,5 @@
 ---
-path: "/blogs/array-flatten"
+path: "/blogs/ai-for-social-good"
 date: "2019-10-25"
 title: "Flattening an Array"
 author: "Olalekan Taofeek"

@@ -1,5 +1,5 @@
 ---
-path: "/blogs/imdb-extension-part-1"
+path: "/blogs/interpretable"
 # date: "Feb 6, 2019"
 date: "2019-02-06"
 title: "Limitations of AI"

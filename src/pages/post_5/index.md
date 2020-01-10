@@ -1,5 +1,5 @@
 ---
-path: "/blogs/creating-cyclic-carousel"
+path: "/blogs/neuroscience"
 date: "2019-03-24"
 title: "Psychology of AI"
 author: "Olalekan Taofeek"
