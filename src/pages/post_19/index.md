@@ -1,7 +1,7 @@
 ---
 path: "/blogs/ai-employee"
 date: "2019-01-11"
-title: "Reinforcement Learning"
+title: "AI for Recruitment"
 author: "Olalekan Taofeek"
 timeToRead: "4"
 smallTitle: "AI for Recruitment"
