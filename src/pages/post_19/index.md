@@ -14,14 +14,15 @@ postNum: "19"
 
 **Artificial Inteeligence** and the Future of Employment Strategy:
 
-Artifical Intelligence is one of the most innovative technological advancement and breakthrough of the modern time. From daily lives to cooperate cultures, everything is being impacted by the novel technology. AI strategy revamp business processby giving managers the power to analyze a vast amount of valuable data derived from employee.
+Artificial Intelligence is one of the most innovative technological advancement and breakthrough of modern time. From daily lives to cooperate cultures, everything is being impacted by the novel technology. AI strategy revamps business processby giving managers the power to analyze a vast amount of valuable data derived from the employee.
 
-## Some Ways AI can help hiring managers and HR managers in the organization.
+## Some Ways AI can help the hiring and HR managers in the organization.
 
-- AI can better help the hiring managers of an organization make a prdictive guess on what the salary of the newly employed staff should be based on some characteritics like _Years of experience_, _Age_, _Interview Score_ , _Location_, _Previous Employment patterns_, _Previous Positions Held_ etc. I did a great job of training a model and deploy to better have a glimpse of what AI can do in this context. [Click here](https://salaryforcast.herokuapp.com/) to experiment with it.
+- AI can better help the hiring managers of an organization make a prdictive guess on what the salary of the newly employed staff should be based on some characteritics like _Years of experience_, _Age_, _Interview Score_ , _Location_, _Previous Employment patterns_, _Previous Positions Held_ etc. I did an awesome job of training a model and deploy to better have a glimpse of what AI can do in this context. [Click here](https://salaryforcast.herokuapp.com/) to experiment with it.
 - Organizations are increasingly adopting AI technology to enhance employee engagement within the organization for better retentions and to better improve employee peformance and revamp productivity.
 - AI can be used to help hiring managers write a compelling Job description based on the current situations and the mission of the organization rather than previous techniques. In this way, better candiate that can drive the organization to achieve the known misson would be demanded for.
 - AI can help HR managers make a crtitical decisons on who is due for promotion within the work space and when to ensure the growth of the organization and Individual through analytics.
+- AI can help predict when an employee would leave an organization and base on what. This would help the hiring manager be on a lookout to avoid a loophole that could cause the organization some productivity.
 - _There would be more updates to the list please keep an eye on more updates to the list._
 
 ```
