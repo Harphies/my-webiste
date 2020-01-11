@@ -18,14 +18,14 @@ Artifical Intelligence is one of the most innovative technological advancement a
 
 ## Some Ways AI can help hiring managers and HR managers in the organization.
 
-- AI can better help the hiring manage of an organization make a prdictive guess on what the salary of the newly employed staff should be based on some characteritics like _Years of experience_, _Age_, _Interview Score_ , _Location_, _Previous Employment patterns_, _Previous Positions Held_ etc. I did a great job of training a model and deploy to better have a glimpse of what AI can do in this context. [Click here](https://salaryforcast.herokuapp.com/) to experiment with it.
+- AI can better help the hiring managers of an organization make a prdictive guess on what the salary of the newly employed staff should be based on some characteritics like _Years of experience_, _Age_, _Interview Score_ , _Location_, _Previous Employment patterns_, _Previous Positions Held_ etc. I did a great job of training a model and deploy to better have a glimpse of what AI can do in this context. [Click here](https://salaryforcast.herokuapp.com/) to experiment with it.
 - Organizations are increasingly adopting AI technology to enhance employee engagement within the organization for better retentions and to better improve employee peformance and revamp productivity.
-- AI can be used to help hiring managers write a compelling Job description based on the current situations and the mission of the organization rather than previous techniques. In this way, better candiate that can drive the organization to achive the known misson would be demanded for.
+- AI can be used to help hiring managers write a compelling Job description based on the current situations and the mission of the organization rather than previous techniques. In this way, better candiate that can drive the organization to achieve the known misson would be demanded for.
 - AI can help HR managers make a crtitical decisons on who is due for promotion within the work space and when to ensure the growth of the organization and Individual through analytics.
 - _There would be more updates to the list please keep an eye on more updates to the list._
 
 ```
-I work with IoT and AI company that is revolutionizing the Healtcare in Africa by building low cost, affordable,and connected clinical tools as _we believe nobody deserve to die from disease that could be prevented with technology.
+I work with an IoT and AI company that is revolutionizing the Healtcare in Africa who's building a low cost, affordable,and connected clinical tools as _we believe nobody deserve to die from disease that could be prevented with technology.
 
 You got an update for me??: Please kindly reach out here, tafeez.tech@gmail.com || +2348101595909
 
