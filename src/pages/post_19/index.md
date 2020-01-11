@@ -1,13 +1,12 @@
 ---
-path: "/blogs/ai-employee"
-date: "2019-01-11"
+path: "/blogs/ai-recruit"
+date: "2020-01-11"
 title: "AI for Recruitment"
 author: "Olalekan Taofeek"
 timeToRead: "4"
 smallTitle: "AI for Recruitment"
-description: "Application of AI to help Talent acquisition and HR Managers making some decisions/."
+description: "Application of AI to help Talent acquisition and HR Managers making some decisions."
 postNum: "19"
-ogimage: "./cover_19.jpg"
 ---
 
 <img src="./cover_19.jpg"/>
@@ -24,9 +23,3 @@ Artifical Intelligence is one of the most innovative technologicl advacement and
 - AI can be used to help hiring managers write a compelling Job description based on the current situations and the mission of the organization rather than previous techniquee. In this way, better candiate that can drive the organization to achive the known misson would be demanded for.
 - AI can help HR managers make a crtitical decisons on who is due for promotion within the work space and when to ensure the growth of the organization and Individual through analytics.
 - _There would be more updates to the list please keep an eye for more updates to the list._
-
-```
-I work for TREPLABS an IoT and AI company solving some of the biggest healthcare challenges in Africa with the above technologies to ensure No one dies from diseases and Infections that could be cured with Technology.
-
-You got an updates for me?? Reach out here: tafeez.tech@gmail.com || +2348101595909
-```
