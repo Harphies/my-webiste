@@ -12,7 +12,7 @@ postNum: "21"
 <img src="./cover_21.jpg"/>
 <br/>
 
-**Recommendation Systems** Recommednation systems has become the integral part of many applications in recent time and mostly web applications. its about recommending something to users based on thier preferences.
+**Recommendation Systems** Recommendation system has become an integral part of many applications in recent time and mostly web applications. it's about recommending something to users based on thier preferences.
 
 **Types of Recommendation Systems**
 
