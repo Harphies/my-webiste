@@ -1,6 +1,6 @@
 ---
 path: "/blogs/recomendation-systems"
-date: "2020-01-14"
+date: "2020-01-17"
 title: "Recommendation Systems"
 author: "Olalekan Taofeek"
 timeToRead: "8"
