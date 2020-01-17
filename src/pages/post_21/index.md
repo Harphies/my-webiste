@@ -9,7 +9,7 @@ description: "A recommender engine for personalized contents for a user."
 postNum: "21"
 ---
 
-<img src="./cover_21.jpg"/>
+<img src="./cover_21.png"/>
 <br/>
 
 **Recommendation Systems** Recommendation system has become an integral part of many applications in recent time and mostly web applications. it's about recommending something to users based on thier preferences.
