@@ -18,7 +18,7 @@ postNum: "21"
 
 - Content Based Filtering Techniques: This techniques of recommendation systems use the profile of a user to suggest something new the user might like base on its likes, commemnts, dislike etc.
 - Collaborative techniques: This techniques of recommender engine use the profile of one user to recommend something for another user base on something they have in common like gender, location, beliefs(Law of attraction)
-- Popularity based recommendation: Recommedning a popular item to users.
+- Popularity based recommendation: Recommending a popular item to users.
 - Hybrid Recommender systems. It combines two or three systems together to make a recommendation
   - Knowledge-Based Recommender
   - Content-Filtering Recommender
@@ -58,10 +58,10 @@ postNum: "21"
 
 **The four phases of Recommendation Systems**
 
-- Collection:
-- Storage:
-- Analysis:
-- Recommendation:
+- Collection
+- Storage
+- Analysis
+- Recommendation
 
 **Architecture of Recommendation Systems**
 
@@ -107,7 +107,7 @@ postNum: "21"
 
 - Data Mining/gather and cleaning data
 - Explore variables to take into considerations
-  - participant and Non-participant observing or Implicit and Explicit data.
+  - Participant and Non-participant observing or Implicit and Explicit data.
   - Recommender engine gather the data about the user that is based on either explicit or implicit behavior.
 - Imputation methods for missing data; please check [here](https://github.com/Harphies/data_science) for your reference.
 
@@ -119,14 +119,14 @@ postNum: "21"
 - Neo.4j
 - IBM Watson
 
-# implemeting Content based filtering
+# Implementing Content based filtering
 
 Content based Recommendation system doesn't require any external data from other users, it use the particular user in context to make recommendation.
 
-- item profile is saved
-- item feature is saved
-- user profile is saved
-- classification is performed.
+- Compute item profile vector
+- Compute item feature vector
+- Compute user profile vector
+- Classification is performed.
   Often, the cosine similarity is calculated to find the best score for Recommendation.
 
 # Implementation Algortithms for Hybrid Recommendation Systems.
