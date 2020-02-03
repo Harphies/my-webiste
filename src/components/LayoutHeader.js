@@ -88,7 +88,7 @@ class LayoutHeader extends React.Component {
                   </div>
                 </Link>
                 {/* <Link to='/contact'><div className={'themeHover hand menuFont fb lh2em ' + (currPath === '/contact' ? 'themeColor' : '')}>Contact</div></Link> */}
-                <a href="https://drive.google.com/open?id=1Zn89ySfU_e9ruCXcZokm5qtuIVk3d1ww&export=download">
+                <a href="https://drive.google.com/file/d/1muA9inE0iRw38aauUR4twXZ0YDqG2FU5/view?usp=sharing">
                   <div className="themeHover hand menuFont lh2em fb ">
                     {" "}
                     Resume
