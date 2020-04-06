@@ -165,7 +165,7 @@ export const technicalSkills1 = [
   ["Computer Vision", "60%"],
   ["Recommendation Systems", "70%"],
   ["Speech Recognition", "50%"],
-  ["Autoencoders", "75%"],
+  ["Autoencoder", "75%"],
 ]
 
 export const technicalSkills2 = [
