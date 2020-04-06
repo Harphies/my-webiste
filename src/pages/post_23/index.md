@@ -14,6 +14,8 @@ postNum: "23"
 
 **Books Read in 2020**
 
+**Reading Greats is essential for brain growth and all**
+
 # Innovation and Innovation Strategy Category
 
 **Focus the Hidden Driver of Excellence** By {Daniel Goleman}
