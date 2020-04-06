@@ -14,6 +14,10 @@ postNum: "23"
 
 **Books Read in 2020**
 
+# Innovation and Innovation Strategy Category
+
+**Focus the Hidden Driver of Excellence** By {Daniel Goleman}
+
 **The Strategy Book** By {Max Mckeown}
 
 **Why Great New Products Fail** By {Duncan Simester etal}
@@ -23,3 +27,19 @@ postNum: "23"
 **When: The Art of Perfect Timing** By {Stuart Albert}
 
 **The Innovation Book** By {Max McKeown}
+
+**Why Great New Products Fail** By {Duncan Simester et-al}
+
+**The Art of Startup Fundraising** By {Alejandro Cremades}
+
+**Walk Like a Giant, Sell Like a Madman** By {Ralph R. Robert}
+
+**Managing Innovation: Integrating Technological, Market and Organizational Change, 5th Edition** By {John Bessant and Joe Tidd}
+
+**Sapeins A Brief History of Humankind** By {Yuval Noah Harari} [March 30 - April 5]
+
+**Benjamin Franklin An American Life** By {Walter Isaacson} [April 6 - Still Reading]
+
+# Artificial Intelligence Category
+
+**Deep Learning Book** By Ian Goodfellow et-al [March 15 - April 30]
