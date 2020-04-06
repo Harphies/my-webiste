@@ -30,8 +30,6 @@ postNum: "23"
 
 **The Innovation Book** By {Max McKeown}
 
-**Why Great New Products Fail** By {Duncan Simester et-al}
-
 **The Art of Startup Fundraising** By {Alejandro Cremades}
 
 **Walk Like a Giant, Sell Like a Madman** By {Ralph R. Robert}
