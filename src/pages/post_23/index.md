@@ -1,6 +1,6 @@
 ---
 path: "/blogs/books"
-date: "2020-02-14"
+date: "2020-04-06"
 title: "books"
 author: "Olalekan Taofeek"
 timeToRead: "5"
