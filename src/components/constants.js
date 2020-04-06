@@ -154,10 +154,17 @@ export const ABOUTME = {
 export const technicalSkills1 = [
   ["Tensorflow", "65%"],
   ["pytorch", "75%"],
-  ["Raspberry Pi", "80%"],
-  ["Circuit designs", "90%"],
-  ["Embedded systems", "85%"],
-  ["Firmware", "80%"],
+  ["Keras", "80%"],
+  ["Sklearn", "80%"],
+  ["IoT", "80%"],
+  ["MultiLayer Perceptrons", "85%"],
+  ["Convolutional Neural Networks", "85%"],
+  ["Recurrent Neural Networks", "85%"],
+  ["Machine Learning", "80%"],
+  ["Natural language Processing", "50%"],
+  ["Computer Vision", "60%"],
+  ["Recommendation Systems", "70%"],
+  ["Speech Recognition", "50%"],
 ]
 
 export const technicalSkills2 = [
@@ -174,11 +181,11 @@ export const introduction = {
   description: [
     "* Hello there!",
     "* I'm Olalekan Taofeek, as you all know already ❤",
-    "* I am an Innovator, working as a Technical Lead and Engineer at TREPLABS.",
+    "* I am an Innovator, working as a Snr. Director of AI and IoT at TREPLABS.",
     "* I use python, Javascript, C/C++ and NodeJs to create Intelligent and smart machines.",
     "* I also Blog about some Interesting (Technical) stuffs that I know quite well on LinkedIn",
     "* I have few Open source projects willing to share with the community",
-    "* I love reading books mostly on human Psychology, Neuroscience, Innovation process and Businness strategy.",
+    "* I love reading books mostly on human Psychology, Neuroscience,History$Biography of Great people, Innovation process and Innovation strategy.",
     "* What other things I do you ask?",
     "* Well...",
     "* I love watching football.",
