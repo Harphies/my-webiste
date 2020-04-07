@@ -17,6 +17,9 @@ postNum: "23"
 **Reading Greats Books is essential for brain growth and all**
 
 **7 Habits of Highly effective people** by {Stephen Corey}
+
 **Principle** by {Ray Dalio}
+
 **The New One Mnute Manager** by {Ken Blanchard}
+
 **Thinking Fast and Slow** by {Daniel Kahneman}
