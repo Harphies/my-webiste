@@ -40,6 +40,8 @@ postNum: "23"
 
 **Benjamin Franklin An American Life** By {Walter Isaacson} [April 6 - Still Reading]
 
+**Good to Great** By {Jim collins} [April 15th -April 18th]
+
 # Artificial Intelligence Category
 
 **Deep Learning Book** By Ian Goodfellow et-al [March 15 - April 30]
