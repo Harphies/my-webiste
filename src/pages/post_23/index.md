@@ -42,6 +42,10 @@ postNum: "23"
 
 **Good to Great** By {Jim collins} [April 15th -April 18th]
 
+**Unfu\*k Yourself** By {Gary John Bishop} {May 6 - May 7}
+
 # Artificial Intelligence Category
 
 **Deep Learning Book** By Ian Goodfellow et-al [March 15 - April 30]
+
+**Generative Deep Learning** By {David Foster} [May 1 - May 20]
