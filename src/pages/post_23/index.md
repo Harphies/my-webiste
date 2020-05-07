@@ -1,7 +1,7 @@
 ---
 path: "/blogs/books"
 date: "2020-04-06"
-title: "books"
+title: "Books in 2020"
 author: "Olalekan Taofeek"
 timeToRead: "5"
 smallTitle: "books"
