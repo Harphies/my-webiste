@@ -42,7 +42,9 @@ postNum: "23"
 
 **Good to Great** By {Jim collins} [April 15th -April 18th]
 
-**Unfu\*k Yourself** By {Gary John Bishop} {May 6 - May 7}
+**Unfu\*k Yourself** By {Gary John Bishop} [May 6 - May 7]
+
+**all about love** By {bell hooks} [May 1 - May 5]
 
 # Artificial Intelligence Category
 
