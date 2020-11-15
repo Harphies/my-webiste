@@ -46,8 +46,11 @@ postNum: "23"
 
 **all about love** By {bell hooks} [May 1 - May 5]
 
+**Art of communication** [May 9 -11]
+
 # Artificial Intelligence Category
 
 **Deep Learning Book** By Ian Goodfellow et-al [March 15 - April 30]
 
 **Generative Deep Learning** By {David Foster} [May 1 - May 20]
+**Practical Deep Learning for Cloud, Mobile and Edge** [May 15 - 20]
