@@ -1,7 +1,7 @@
 ---
 path: "/blogs/dockermultiservice"
 date: "2020-11-15"
-title: "Distributed Systems and Orchestration with docker swarm Multi-Node Multi-Service Architecture"
+title: "Distributed Systems and Container Orchestration with docker swarm Multi-Node Multi-Service Architecture"
 author: "Olalekan Taofeek"
 timeToRead: "5"
 smallTitle: "Container orchestration"
