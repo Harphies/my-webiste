@@ -1,56 +1,38 @@
 ---
 path: "/blogs/books"
 date: "2020-04-06"
-title: "Books in 2020"
+title: "Books read from 2019 till date"
 author: "Olalekan Taofeek"
 timeToRead: "5"
 smallTitle: "books"
-description: "Books read in 2020."
+description: "Books I enjoyed learning from"
 postNum: "23"
 ---
 
 <img src="./cover_23.jpg"/>
 <br/>
 
-**Books Read in 2020**
+**Books I have read and learned some valuable things from**
 
-**Reading Greats Books is essential for brain growth and all**
-
-# Innovation and Innovation Strategy Category
-
-**Focus the Hidden Driver of Excellence** By {Daniel Goleman}
-
-**The Strategy Book** By {Max Mckeown}
-
-**Why Great New Products Fail** By {Duncan Simester etal}
-
-**Managing Innovation, Design and Creativity** By {Bettiva Von Stamm}
-
-**When: The Art of Perfect Timing** By {Stuart Albert}
-
-**The Innovation Book** By {Max McKeown}
-
-**The Art of Startup Fundraising** By {Alejandro Cremades}
-
-**Walk Like a Giant, Sell Like a Madman** By {Ralph R. Robert}
-
-**Managing Innovation: Integrating Technological, Market and Organizational Change, 5th Edition** By {John Bessant and Joe Tidd}
-
-**Sapeins A Brief History of Humankind** By {Yuval Noah Harari} [March 30 - April 5]
-
-**Benjamin Franklin An American Life** By {Walter Isaacson} [April 6 - Still Reading]
-
-**Good to Great** By {Jim collins} [April 15th -April 18th]
-
-**Unfu\*k Yourself** By {Gary John Bishop} [May 6 - May 7]
-
-**all about love** By {bell hooks} [May 1 - May 5]
-
-**Art of communication** [May 9 -11]
-
-# Artificial Intelligence Category
-
-**Deep Learning Book** By Ian Goodfellow et-al [March 15 - April 30]
-
-**Generative Deep Learning** By {David Foster} [May 1 - May 20]
-**Practical Deep Learning for Cloud, Mobile and Edge** [May 15 - 20]
+- <strong>Focus the Hidden Driver of Excellence</strong> By Daniel Goleman
+- <strong>The Strategy Book </strong> By Max Mckeown
+- <strong> Why Great New Products Fail </strong> By Duncan Simester et-al
+- <strong> Managing Innovation, Design and Creativity</strong> By Bettiva Von Stamm
+- <strong>When: The Art of Perfect Timing</strong> By Stuart Albert
+- <strong>The Innovation Book </strong> By Max McKeown
+- <strong> The Art of Startup Fundraising </strong> By Alejandro Cremades
+- <strong>Walk Like a Giant, Sell Like a Madman</strong> By Ralph R. Robert
+- <strong>Managing Innovation: Integrating Technological, Market and Organizational Change, 5th Edition </strong> By John Bessant and Joe Tidd
+- <strong>Sapeins A Brief History of Humankind</strong> By Yuval Noah Harari
+- <strong> Good to Great</strong> By Jim collins
+- <strong> Unfu\*k Yourself</strong> By Gary John Bisho
+- <strong> All about love</strong> By bell hooks
+- <strong>Art of communication</strong>
+- <strong>Deep Learning Book </strong> By Ian Goodfellow et-al
+- <strong>Generative Deep Learning</strong> By David Foster
+- <strong> Practical Deep Learning for Cloud, Mobile and Edge</strong>
+- <strong>7 Habits of Highly effective people </strong> by Stephen Corey
+- <strong>Principle</strong> by Ray Dalio
+- <strong>The New One Mnute Manager</strong> by Ken Blanchard
+- <strong>Thinking Fast and Slow</strong> by Daniel Kahneman
+  <strong></strong>

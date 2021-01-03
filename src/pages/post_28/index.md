@@ -6,10 +6,10 @@ author: "Olalekan Taofeek"
 timeToRead: "3"
 smallTitle: "MCUNet with TinyNAS and TinyEngine"
 description: "Running Machine learning and deep learning Inferences on IoT devices with MCUNet"
-postNum: "28"
+postNum: "26"
 ---
 
-<img src="./cover_28.png"/>
+<img src="./cover_26.png"/>
 <br/>
 <br/>
 <br/>
