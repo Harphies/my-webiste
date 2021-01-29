@@ -1,5 +1,5 @@
 ---
-path: "/blogs/mcunet"
+path: "/blogs/portfolio"
 date: "2021-01-29"
 title: "Project Portfolio Timeline"
 author: "Olalekan Taofeek"
