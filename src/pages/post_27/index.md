@@ -60,7 +60,7 @@ postNum: "27"
 
 - <a href="">DripX</a>
 
-<p>Technical Lead on the technology selection and features Implementation. managed the entire technology stacj of choice for each feature of the application </p>
+<p>Technical Lead on the technology selection and features Implementation. managed the entire technology stack of choice for each feature of the application </p>
 
 <br>
 <br>
@@ -78,4 +78,4 @@ postNum: "27"
 
 - <a href=""> Replicate OpenAI DALLE and CLIP </a>
 
-<p>Replicate with Pytrch the OpenAI Text to Image transformer model and CLIP for generation evaluation </p>
+<p>Replicate with Pytorch the OpenAI Text to Image transformer model and CLIP for generation evaluation </p>
