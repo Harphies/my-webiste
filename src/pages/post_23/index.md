@@ -34,5 +34,14 @@ postNum: "23"
 - <strong>7 Habits of Highly effective people </strong> by Stephen Corey
 - <strong>Principle</strong> by Ray Dalio
 - <strong>The New One Mnute Manager</strong> by Ken Blanchard
-- <strong>Thinking Fast and Slow</strong> by Daniel Kahneman
+- <a href=""><strong>Thinking Fast and Slow</a></strong> by Daniel Kahneman
+  <strong></strong>
+
+## 2021 Books
+
+- <a href="https://www.linkedin.com/posts/olalekan-taofeek_books-book-activity-6752924026739445761-Nc2J/"><strong>Disrupt Yourself</a></strong> by Whitney Johnson
+  <strong></strong>
+- <a href="https://www.linkedin.com/posts/olalekan-taofeek_personaldevelopment-wealthcreation-motivation-activity-6760864788500279296-rMX1/"><strong>The Psychology of wealth</a></strong> by Charles Richards, Ph.D
+  <strong></strong>
+- <a href="https://www.linkedin.com/posts/olalekan-taofeek_creativity-problemsolving-innovation-activity-6758705576739430400-iJ3l/"><strong>What's your problem</a></strong> by Thomas Wedell-wedellsborg
   <strong></strong>
