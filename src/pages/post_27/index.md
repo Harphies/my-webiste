@@ -22,11 +22,11 @@ postNum: "27"
 
 <p> Led the project setup, developed the architecture, design the database and manage the end to end technical implementation of the projects. prioritizing features and technological selection. </p>
 
-- <a href="">3uloom </a>
+- <a href="https://3uloom.com/">3uloom</a>
 
 <p>Led the project setup, developed the architecture, design the database and manage the end to end technical implementation of the projects. prioritizing features and technological selection. </p>
 
-- <a href="https://3uloom.com/">3uloom </a>
+- <a href="">FIT</a>
 
 <p>Led the project setup, developed the architecture, design the database and manage the end to end technical implementation of the projects. prioritizing features and technological selection. </p>
 
@@ -41,7 +41,7 @@ postNum: "27"
 
 ## Brave Tech: NLP Engineer / NLP Product Manager
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>Managing the NLP Application Pipeline from Data acquisition to post model updating and monitoring. Prioritizing feature implementation and advising on the best approaches to each feature implentation </p>
 
 <br>
 <br>
@@ -52,15 +52,15 @@ postNum: "27"
 
 - <a href="">Realdrip</a>
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>IoT Infusion monitoring device. Design and Developed the IoT and AI features of the device.</p>
 
 - <a href="">Itoju</a>
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>Diagnostic AI tools for medical diasease diagnoses Intervention. Developed the recommendation systems and other AI models of the Application. Architect and Developed the database and the GrapQl API </p>
 
 - <a href="">DripX</a>
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>Technical Lead on the technology selection and features Implementation. managed the entire technology stacj of choice for each feature of the application </p>
 
 <br>
 <br>
@@ -70,12 +70,12 @@ postNum: "27"
 
 - <a href=""> 1doctor.ai </a>
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>Developing a multimodal AI systems for all things medical. </p>
 
 - <a href=""> CheXNet </a>
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>Developed a Computer Vision model (classification, segementation and localization) for chest x-ray diagnosis for various diseases. Implemented in pytorch.</p>
 
 - <a href=""> Replicate OpenAI DALLE and CLIP </a>
 
-<p>Developed the data architecture, setup the clean folder structure for scalability and maintenance, setup CI/CD to Heroku using github Action and docker hub(Image Repository) </p>
+<p>Replicate with Pytrch the OpenAI Text to Image transformer model and CLIP for generation evaluation </p>
