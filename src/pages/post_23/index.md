@@ -44,5 +44,4 @@ postNum: "23"
 - <a href="https://www.linkedin.com/posts/olalekan-taofeek_personaldevelopment-wealthcreation-motivation-activity-6760864788500279296-rMX1/"><strong>The Psychology of wealth</a></strong> by Charles Richards, Ph.D
   <strong></strong>
 - <a href="https://www.linkedin.com/posts/olalekan-taofeek_creativity-problemsolving-innovation-activity-6758705576739430400-iJ3l/"><strong>What's your problem</a></strong> by Thomas Wedell-wedellsborg
-- <strong><a href="https://www.linkedin.com/posts/olalekan-taofeek_artificialintelligence-naturallanguageprocessing-activity-6754495021443022848-Bb6s"><strong>Practical Natural Language Processing</a></strong> by Sawmya Wajjal et-al
-  <strong></strong>
+- <a href="https://www.linkedin.com/posts/olalekan-taofeek_artificialintelligence-naturallanguageprocessing-activity-6754495021443022848-Bb6s"><strong>Practical Natural Language Processing</a></strong> by Sawmya Wajjal et-al
