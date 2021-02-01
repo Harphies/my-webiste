@@ -51,7 +51,6 @@ postNum: "23"
 <li> <strong>the four: the DNA of Amazon, Google, Facebook and Apple</strong> by Scott Galloway
 <li>  <strong>The New One Mnute Manager</strong> by Ken Blanchard
 <li>  <strong>You Can't Know it all: Leading in the Age of Deep Expertise</strong> by Wanda T. Wallace
-<li>  <a href=""><strong>Thinking Fast and Slow</a></strong> by Daniel Kahneman
 <li> <a href=""><strong>Discipline entrepreneurship: 24 steps to successful startup</a></strong> by Bill Aulet
 <li>  <a href=""><strong>Scale of fail </a></strong> by Allison Maslan
 <li>  <a href=""><strong>Startup, Scaleup and Screwup</a></strong> by Jurgen Appelo
