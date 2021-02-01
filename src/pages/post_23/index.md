@@ -19,8 +19,8 @@ postNum: "23"
 <li> <strong>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</strong> By Ashlee Vance
 <li> <strong>Lean Startup</strong> By Eric Ries
 <li> <strong>Think and grow Rich</strong> By Napoleon Hill
-<li>  <strong>The Rchest man in babylon</strong> By George S. Classon
-<li>  <strong>How to win friends and Influence People</strong> By George S. Classon
+<li>  <strong>The Richest man in babylon</strong> By George S. Classon
+<li>  <strong>How to win friends and Influence People</strong> By Dale Carneige
 <li>  <strong>Blink</strong> By Malcom Gladwell
 <li>  <strong>Thinking fast and Slow</strong> By Daniel Khaneman
 <li>  <strong>The Strategy Book </strong> By Max Mckeown
