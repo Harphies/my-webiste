@@ -68,5 +68,6 @@ postNum: "23"
 <li> <a href="https://www.linkedin.com/posts/olalekan-taofeek_creativity-problemsolving-innovation-activity-6758705576739430400-iJ3l/"><strong>What's your problem</a></strong> by Thomas Wedell-wedellsborg
 <li> <a href="https://www.linkedin.com/posts/olalekan-taofeek_artificialintelligence-naturallanguageprocessing-activity-6754495021443022848-Bb6s"><strong>Practical Natural Language Processing</a></strong> by Sawmya Wajjal et-al
 <li> <a href=""><strong>Storyworthy: Engage, Persuade, and Change Your Life through the Power of Storytelling</a></strong> by Mattew Dicks
-  <strong></strong>
+<li> <a href=""><strong>How to change things SWITCH when change is hard</a></strong> by Chip & Dan Heath
+<li> <a href=""><strong>Introducing MLOps</a></strong> by Mark Treveil et-al
 </ol>
