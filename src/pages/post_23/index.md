@@ -70,4 +70,5 @@ postNum: "23"
 <li> <a href=""><strong>Storyworthy: Engage, Persuade, and Change Your Life through the Power of Storytelling</a></strong> by Mattew Dicks
 <li> <a href=""><strong>How to change things SWITCH when change is hard</a></strong> by Chip & Dan Heath
 <li> <a href=""><strong>Introducing MLOps</a></strong> by Mark Treveil et-al
+<li> <a href=""><strong>Design it: from programmer to Software Architect</a></strong> by Michael Keeling
 </ol>
