@@ -1,0 +1,21 @@
+version: 1
+my-website:
+  phases:
+    preBuild:
+      commands:
+        - nvm install v15
+        - yum install -y nasm 
+        - yarn install 
+    build:
+      commands:
+        - yarn run build
+    postBuild:
+      commands:
+        - yarn run deploy
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
