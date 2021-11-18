@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout-Page"
 import FadeIn from "../components/FadeIn"
 import { FaLink } from "react-icons/fa"
 import { MdExpandMore } from "react-icons/md"

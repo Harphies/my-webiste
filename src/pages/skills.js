@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout-Page"
 import FadeIn from "../components/FadeIn"
 import { technicalSkills1, technicalSkills2 } from "../components/constants"
 import SEO from "../components/seo"

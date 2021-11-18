@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout-Page"
 import FadeIn from "../components/FadeIn"
 import { introduction } from "../components/constants"
 import CursorImitator from "../components/CursorImitator"

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import Layout from "../components/Layout"
+import Layout from "../components/Layout-Page"
 import { portfolioDetails } from "../components/constants"
 import FadeIn from "../components/FadeIn"
 import { FaExternalLinkAlt } from "react-icons/fa"
