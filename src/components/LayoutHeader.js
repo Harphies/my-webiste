@@ -88,7 +88,7 @@ class LayoutHeader extends React.Component {
                   </div>
                 </Link>
                 {/* <Link to='/contact'><div className={'themeHover hand menuFont fb lh2em ' + (currPath === '/contact' ? 'themeColor' : '')}>Contact</div></Link> */}
-                <a href="https://drive.google.com/file/d/1muA9inE0iRw38aauUR4twXZ0YDqG2FU5/view?usp=sharing">
+                <a href="">
                   <div className="themeHover hand menuFont lh2em fb ">
                     {" "}
                     Resume
@@ -134,16 +134,6 @@ class LayoutHeader extends React.Component {
               >
                 <div className="">Blogs</div>
                 {/* <div className={'borderMenu ' + (currPath === '/blogs' ? 'width100' : '')}></div> */}
-              </Link>
-              <Link
-                className={
-                  "inbl marginR5p hideless500w " +
-                  (currPath === "/portfolio" ? "fb" : "")
-                }
-                to="/portfolio"
-              >
-                <div className="">Portfolio</div>
-                {/* <div className={'borderMenu ' + (currPath === '/portfolio' ? 'width100' : '')}></div> */}
               </Link>
               <Toggle className="inbl " theme={theme} themer={themer} />
             </div>

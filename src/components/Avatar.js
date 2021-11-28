@@ -39,7 +39,7 @@ const Avatar = () => {
             className="lh2em"
             style={{ lineHeight: "3em", animationDelay: "0.20s" }}
           >
-            Cloud Native and Solutions Architect | Serverless | Integrations | Automation
+            Cloud Native & Solutions Architect | Serverless | Integrations | Automation
           </FadeIn>
         </div>
       </div>
