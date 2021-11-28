@@ -139,13 +139,13 @@ export const ABOUTME = {
     {
       name: "Federal University of Technology Akure",
       branch: "B.Tech. Physics Electronics",
-      period: "2013-2018",
+      period: "",
       project: "A smart IoT device for efficient Energy control",
     },
     {
       name: "Wesley College of Science Elekuro",
       branch: "science",
-      period: "2009-2012",
+      period: "",
       project: "Science & Technology",
     },
   ],
@@ -182,7 +182,7 @@ export const introduction = {
   description: [
     "* Hello there!",
     "* I'm Olalekan Taofeek, as you all know already ❤",
-    "* I am an Innovator, working as a Sr. Director of AI and IoT at TREPLABS where I lead the team responsible for all neural networks on the EdgeAI devices",
+    "* ",
     "* I use python, Javascript, C/C++ and NodeJs to create Intelligent and smart machines.",
     "* I also Blog about some Interesting (Technical) stuffs that I know quite well on LinkedIn",
     "* I have few Open source projects willing to share with the community",
