@@ -66,6 +66,7 @@ ALB Ingress Controller Helm chart: https://artifacthub.io/packages/helm/aws/aws-
 ```
 
 Stage2: Ingress Annotations and Apply to the cluster
+
 Create the ingress file and apply it to the cluster
 
 ```
@@ -105,6 +106,18 @@ Downlaod the IAM Policy from here: https://raw.githubusercontent.com/kubernetes-
 Get the iam assume role module here: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc
 
 ```
+Prerequisite:
+
+data "aws_eks_cluster" "cluster" {
+  name = module.eks.cluster_id
+  depends_on = [
+    module.eks
+  ]
+}
+
+locals {
+  oidc_provider_url       = data.aws_eks_cluster.cluster.identity.0.oidc.0.issuer
+}
 
 Step1: 
 data "tls_certificate" "core_eks" {
@@ -207,3 +220,26 @@ spec:
       securityContext:
         fsGroup: 65534
 ```
+
+Stage6: Annotate each of the services to route traffic to by the Ingress Object
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: {your_name}
+  labels:
+  annotations:
+    alb.ingress.kubernetes.io/target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: {custom_name_for_service}.{dns_name}
+spec:
+  type: LoadBalancer #Loadbalancer service type from v2.3 of the controller
+  selector:
+    {add_your_app}
+  ports:
+    - port: 80
+      targetPort: 5000
+      protocol: TCP
+```
+official docs for service annotation options: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/service/annotations/
