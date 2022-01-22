@@ -160,8 +160,11 @@ Note: The serviceAccount you created here and assume role for is what you pass t
 
 
 
-Stage 3: External DNS Configurations
+Stage 4: External DNS Configurations
+Here: We configure an external DNS for a domain hosted in AWS Route53 hosted zone to use for the created ALB Instance and other services hosted on the cluster
+
 Downlaod the YAML Deployment Specification from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.0.0/docs/examples/external-dns.yaml
+
 official docs: official doc: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
 Deploy it to the cluster
 ```
