@@ -155,6 +155,7 @@ module "alb_iam_role" {
     "sts.amazonaws.com"
   ]
 }
+Note: The serviceAccount you created here and assume role for is what you pass to the helm chart value which give the Ingress controller tje neccesarry permissions to create ALB target groups, targets, listener rules in your AWS Account
 ```
 
 
