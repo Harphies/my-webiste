@@ -99,7 +99,9 @@ spec:
 ```
 
 Stage 3: OIDC Service Account and IAM Policy Permissions for the Ingress Controller
+
 Downlaod the IAM Policy from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
+
 Get the iam assume role module here: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc
 
 ```
