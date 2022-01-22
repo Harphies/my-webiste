@@ -20,6 +20,31 @@ postNum: "28"
 Stage1: Helm Chart Installation and Helm Chart Values--With Terraform
 
 ```
+Step1: 
+create a terraform template to parametarise the Ingress Helm chart values for improved code structure and future updates
+
+clusterName: ${cluster_name}
+region: ${region}
+vpcId: ${vpc_id}
+ingressClass: alb
+securityContext: {}
+serviceAccount:
+  create: false
+  name: aws-load-balancer-controller
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+podLabels:
+  app.kubernetes.io/instance: aws-load-balancer-controller
+  app.kubernetes.io/name: aws-load-balancer-controller
+
+
+Step2: 
+Create a helm release resource with terraform helm release provider and pass the helm values loaded
 resource "helm_release" "alb_ingress_controller" {
   name       = "aws-load-balancer-controller"
   chart      = "aws-load-balancer-controller"
@@ -31,6 +56,11 @@ resource "helm_release" "alb_ingress_controller" {
   # configuration settings
   values = [local.alb_config]
 }
+
+Official docs for more supports:
+Terraform helm provider: https://registry.terraform.io/providers/hashicorp/helm/latest/docs
+ALB Ingress Controller Helm chart: https://artifacthub.io/packages/helm/aws/aws-load-balancer-controller
+
 ```
 
 Stage2: Ingress Annotations and Apply to the cluster
@@ -82,6 +112,8 @@ resource "aws_iam_openid_connect_provider" "example" {
 }
 
 Step3: Create the IAM Policy
+Downlaod the IAM Policy from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
+
 resource "aws_iam_policy" "alb_ingress_controller" {
   name        = "aws-alb-ingress-iam-policy"
   description = "IAM Policy for the AWS Ingress controller"
@@ -101,7 +133,7 @@ resource "kubernetes_service_account" "ALB_controller" {
 }
 
 Step 5: Assume Role for the service account created above
-Mine is created in the kube-system namespace-- rememeber to replace with the namespace where your service account is created
+Get the module here: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc
 module "alb_iam_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version = "~> 4.0"
@@ -123,7 +155,7 @@ module "alb_iam_role" {
 
 
 Stage 3: External DNS Configurations
-
+Downlaod the YAML Deployment Specification from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.0.0/docs/examples/external-dns.yaml
 ```
 Step1: 
 apiVersion: apps/v1
@@ -163,4 +195,6 @@ spec:
               cpu: 100m
       securityContext:
         fsGroup: 65534
+
+official doc: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
 ```
