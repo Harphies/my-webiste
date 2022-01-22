@@ -179,7 +179,10 @@ Here: We configure an external DNS for a domain hosted in AWS Route53 hosted zon
 Downlaod the YAML Deployment Specification from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.0.0/docs/examples/external-dns.yaml
 
 official docs: official doc: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
+
 Deploy it to the cluster
+
+Note: You also need to `assume role` for the external-dns serviceaccount in your namespace you created it in like you did for the `aws-load-balancer-controller` serviceaccount above for it to work, otherwise, there would be some issues
 ```
 Step1: 
 apiVersion: apps/v1
