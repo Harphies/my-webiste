@@ -64,6 +64,7 @@ ALB Ingress Controller Helm chart: https://artifacthub.io/packages/helm/aws/aws-
 ```
 
 Stage2: Ingress Annotations and Apply to the cluster
+Create the ingress file and kubectl apply it to your cluster or apply it to the cluster with terraform
 
 ```
 apiVersion: networking.k8s.io/v1
