@@ -16,6 +16,7 @@ postNum: "28"
 
 
 **Steps to getting AWS ALB Ingress Controller Working in Your EKS Cluster**
+Note: Some level of working with kubernetes, terraform, AWS and Helm is required
 
 Stage1: Helm Chart Installation and Helm Chart Values--With Terraform
 
@@ -64,7 +65,7 @@ ALB Ingress Controller Helm chart: https://artifacthub.io/packages/helm/aws/aws-
 ```
 
 Stage2: Ingress Annotations and Apply to the cluster
-Create the ingress file and kubectl apply it to your cluster or apply it to the cluster with terraform
+Create the ingress file and apply it to the cluster
 
 ```
 apiVersion: networking.k8s.io/v1
@@ -97,6 +98,8 @@ spec:
 ```
 
 Stage 3: OIDC Service Account and IAM Policy Permissions for the Ingress Controller
+Downlaod the IAM Policy from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
+Get the iam assume role module here: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc
 
 ```
 
@@ -113,7 +116,6 @@ resource "aws_iam_openid_connect_provider" "example" {
 }
 
 Step3: Create the IAM Policy
-Downlaod the IAM Policy from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
 
 resource "aws_iam_policy" "alb_ingress_controller" {
   name        = "aws-alb-ingress-iam-policy"
@@ -134,7 +136,6 @@ resource "kubernetes_service_account" "ALB_controller" {
 }
 
 Step 5: Assume Role for the service account created above
-Get the module here: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc
 module "alb_iam_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version = "~> 4.0"
@@ -157,6 +158,8 @@ module "alb_iam_role" {
 
 Stage 3: External DNS Configurations
 Downlaod the YAML Deployment Specification from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.0.0/docs/examples/external-dns.yaml
+official docs: official doc: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
+Deploy it to the cluster
 ```
 Step1: 
 apiVersion: apps/v1
@@ -196,6 +199,4 @@ spec:
               cpu: 100m
       securityContext:
         fsGroup: 65534
-
-official doc: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
 ```
