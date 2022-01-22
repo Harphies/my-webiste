@@ -1,7 +1,7 @@
 ---
 path: "/blogs/k8s-aws-alb"
 date: "2022-01-22"
-title: "Kubernetes AWS ALB Ingress Controller"
+title: "Kubernetes Ingress Controller with AWS ALB Ingress Controller"
 author: "Olalekan Taofeek"
 timeToRead: "5"
 smallTitle: "Kubernetes Ingress Controller with ALB"
