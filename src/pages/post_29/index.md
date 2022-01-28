@@ -206,7 +206,7 @@ resource "aws_security_group" "efs_sg" {
 ```
 </br>
 
-## Stage3: Creating Stotage Class with the created EFS Storage device
+## Stage3: Creating Storage Class with the created EFS Storage device
 
 ```
 kind: StorageClass
@@ -223,7 +223,7 @@ parameters:
   basePath: "/dynamic_provisioning" # optional
 ```
 
-## Stage4: Creation of Persistence Volumne from the Storage Class
+## Stage4: Creation of Persistent Volume from the Storage Class
 
 Persistence volume is basically a place holder for storage requests
 ```
@@ -247,7 +247,7 @@ spec:
 
 </br>
 
-## Stage5: Create Persistence Volume Claims for workloads to use
+## Stage5: Create Persistent Volume Claims for workloads to use
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
