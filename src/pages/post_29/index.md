@@ -33,9 +33,11 @@ There are various types of mechanisms to achieve storage on kubernetes depending
 
 The emptyDir() to mention a few--which is very close to a persistent volume in the sence that it persist container restarts--meaning restarting a container multiple times intact the data it stored
 
-## **Implementation**
+## ****
 
-**Stage1:** Installation of EFS Storage Driver on EKS EC2 node groups-- This wil install the efs-csi-controller and the efs-csi-node on each of the cluster node groups 
+## Implementation Stage1
+
+Installation of EFS Storage Driver on EKS EC2 node groups-- This wil install the efs-csi-controller and the efs-csi-node on each of the cluster node groups 
 
 The controller service is responsible for managing the creation and deletion of volumes in the storage provider—taking volume snapshots and expanding volume etc
 
@@ -125,14 +127,12 @@ resource "helm_release" "efs_provisioner" {
 
 </br>
 
-**Stage2: Creation of EFS Filesystem Storage device with terraform**
+## Implementation Stage2: Creation of EFS Filesystem Storage device with terraform
 
 </br>
 A Storage device could be a filesystem or a block-level storage class. The two major storage device used on AWS are the EBS volumes for block-level storage and EFS and Fsx for filesystem storage. 
 
 EBS volumes usally comes with EC2 node groups with difult gp2 storage classs. But in this we'll be considering a special case where an elastic filesystem is required for some data intensive workloads that might might need to live beyond the lifecyle of the container pod that created the data for analytics or other business decisions
-
-Code Implementation:
 
 Step1: Creating the Filesystem
 ```
@@ -208,7 +208,7 @@ resource "aws_security_group" "efs_sg" {
 ```
 </br>
 
-**Stage3: Creating Stotage Class with the created EFS Storage device**
+## Stage3: Creating Stotage Class with the created EFS Storage device
 
 ```
 kind: StorageClass
@@ -225,7 +225,7 @@ parameters:
   basePath: "/dynamic_provisioning" # optional
 ```
 
-**Stage4: Creation of Persistence Volumne from the Storage Class**
+## Stage4: Creation of Persistence Volumne from the Storage Class
 
 Persistence volume is basically a place holder for storage requests
 ```
@@ -249,8 +249,7 @@ spec:
 
 </br>
 
-**Stage5: Create Persistence Volume Claims for workloads to use**
-
+## Stage5: Create Persistence Volume Claims for workloads to use
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -265,7 +264,7 @@ spec:
       storage: 5Gi
 ```
 
-**Stage6: Attaching a Persistence Volume Claims to workloads**
+## Stage6: Attaching a Persistence Volume Claims to workload
 
 ```
 apiVersion: apps/v1
