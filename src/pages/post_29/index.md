@@ -21,21 +21,19 @@ Note: Some level of working with kubernetes, terraform, AWS and Helm is required
 
 Prerequisites:
 
-Every major data systems such as kafka, redis, mysql, postgresql, elasticsearch, prometheus and many more data systems which requires to store long lived data for workloads that interact with them beyond the lifecycle of the container that created it need some form os persistent storage
+Every major data systems such as kafka, redis, mysql, postgresql, elasticsearch, prometheus and many more data systems which requires to store long lived data for workloads that interact with them beyond the lifecycle of the container that created it need some form of persistent storage
 
-And To achieve that bjective of storing data beyond the containers that created it, a special object in kubernetes is required to achieve this, which is mostly reffered to as Statefulset
+And to achieve that objective of storing data beyond the containers that created it, a special object in kubernetes is required to achieve this, which is mostly reffered to as __Statefulset__ but persistent volumes can also be created for __Deployment__ containers.
 
 However, deploying a statefulset workloads requires a singleton pattern-either out-of-locking or in-app locking--a seperate post is comming on this in this series of storage on kubernetes
 
-## Types of Volummes in kubernetes
+## Types of Volumes in kubernetes
 
 There are various types of mechanisms to achieve storage on kubernetes depending on the intent and architecture requirements of the application.
 
 The emptyDir() to mention a few--which is very close to a persistent volume in the sence that it persist container restarts--meaning restarting a container multiple times intact the data it stored
 
-## ****
-
-## Implementation Stage1
+## Implementation Stage1:
 
 Installation of EFS Storage Driver on EKS EC2 node groups-- This wil install the efs-csi-controller and the efs-csi-node on each of the cluster node groups 
 
@@ -127,12 +125,12 @@ resource "helm_release" "efs_provisioner" {
 
 </br>
 
-## Implementation Stage2: Creation of EFS Filesystem Storage device with terraform
+## Stage2: Creation of EFS Filesystem Storage device with terraform
 
 </br>
 A Storage device could be a filesystem or a block-level storage class. The two major storage device used on AWS are the EBS volumes for block-level storage and EFS and Fsx for filesystem storage. 
 
-EBS volumes usally comes with EC2 node groups with difult gp2 storage classs. But in this we'll be considering a special case where an elastic filesystem is required for some data intensive workloads that might might need to live beyond the lifecyle of the container pod that created the data for analytics or other business decisions
+EBS volumes usally comes with EC2 node groups with default gp2 storage classs. But in this we'll be considering a special case where an elastic filesystem is required for some data intensive workloads that might might need to live beyond the lifecyle of the container pod that created the data for analytics or other business decisions
 
 Step1: Creating the Filesystem
 ```
