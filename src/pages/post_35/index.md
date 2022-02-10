@@ -9,7 +9,7 @@ description: "Kubernetes Operators vs Controllers"
 postNum: "35"
 ---
 
-<img src="./k8s-ops-and-objs.svg"/>
+<img src="./k8s-ops-and-objs.png"/>
 <br/>
 <br/>
 <br/>
