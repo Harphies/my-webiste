@@ -46,7 +46,7 @@ How it works: When you install the helm chart for an [operator](https://operator
 
 For example:
 
-helm installation of [cert-manager](https://artifacthub.io/packages/helm/appscode/cert-manager-crds) will install the cert-manager CRDs:
+Helm installation of [cert-manager](https://artifacthub.io/packages/helm/appscode/cert-manager-crds) will install the cert-manager CRDs:
 ```
 Certificate
 Issuer
