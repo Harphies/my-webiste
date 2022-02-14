@@ -65,7 +65,7 @@ ThanosRuler
 etc
 ```
 
-Helm installation of [confluent components](https://docs.confluent.io/operator/current/co-deploy-cfk.html) platform will install Prometheus, Grafana and Alertmanager CRDs:
+Helm installation of [confluent components](https://docs.confluent.io/operator/current/co-deploy-cfk.html) platform will install Zookerper, Kafka, KsqlDB, Connect, SchemaRegistry CRDs:
 ```
 Zookeeper
 Zookeeper
