@@ -24,8 +24,8 @@ You don't have to worry much about the option in each of your cloud provider of 
 - [Networking](#networking)
 - [Compute](#compute-container-orchestration-and-serverless)
 - [CDN and Load Balancer](#cdn-and-load-balancers)
-- [Storage and File Systems](#storage-object-storage-and-file-systems)
-- [Databases](#databases)
+- [Storage and Messaging](#storage-and-messaging)
+- [Databases](#databases-oltp-and-olap)
 - [Continous Integration and Continous Delivery](#conitnous-integration-and-continous-delivery)
 - [Data Engineering](#data-analytics-aiml)
 
@@ -82,20 +82,29 @@ __Small Note__: Still exploring
 | [Elastic Load Balancer(ALB, NLB, Classic)](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) | [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/) | ?
 | [AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html) | [Azure front Door](https://docs.microsoft.com/en-us/azure/frontdoor/) | ?
 | [API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) | [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/)
+| [AWS Route53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html) | [Azure DNS](https://docs.microsoft.com/en-us/azure/dns/) | ?
+| ? | [Azure traffic manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) | ?
 
 __Small Note__: Still exploring
 </br>
 
-## Storage (Object Storage) and File Systems
+## Storage and Messaging
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS S3](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/) | ?
+| [AWS EFS](https://docs.aws.amazon.com/efs/) | [Azure Files](https://azure.microsoft.com/en-us/services/storage/files/) |
+| [EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) | [Azure managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview) | ?
+| [AWS Backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html) | [Azure Backups](https://docs.microsoft.com/en-us/azure/backup/) | ?
+| [AWS SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) | [Queue Storage](https://docs.microsoft.com/en-us/azure/storage/queues/storage-nodejs-how-to-use-queues?tabs=javascript) | ?
+| [AWS SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) |  [Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) | ?
+| [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) |  [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) | ?
+| [Amazon Kinesis](https://docs.aws.amazon.com/kinesis/index.html) | [Azure Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/) | ?
 
 __Small Note__: Still exploring
 </br>
 
-## Databases
+## Databases: OLTP and OLAP
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
