@@ -150,7 +150,7 @@ __Small Note__: Still exploring
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
-| [AWS CloudWatch](https://docs.aws.amazon.com/cloudwatch/index.html) | [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/) | ?
+| [AWS CloudWatch](https://docs.aws.amazon.com/cloudwatch/index.html) & [X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html) | [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/) | ?
 
 __Small Note__: Still exploring
 </br>
