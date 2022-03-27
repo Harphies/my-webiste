@@ -36,6 +36,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS Solution Implementations](https://aws.amazon.com/solutions/campaign-implementations/) | [Azure Solution Ideas](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | ?
+| [AWS Reference Architecture Diagrams](https://aws.amazon.com/architecture/reference-architecture-diagrams/) | [Reference architectures on Azure](https://docs.microsoft.com/en-us/azure/architecture/browse/?filter=reference-architecture) | ?
 </br>
 
 ## Infrastructure as Code
