@@ -70,6 +70,7 @@ __Small Note__: Still exploring
 | [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) | [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/) | ?
 | [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) | [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/) | [Cloud Functions](https://cloud.google.com/functions)
 | [AWS Amplify](https://docs.amplify.aws/) | [Azure app services](https://docs.microsoft.com/en-us/azure/app-service/) | ?
+| [AutoScaling Group(ASG) for EC2 Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) | [Azure Virtual Machine Scaling](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) | ?
 
 __Small Note__: Still exploring
 </br>
@@ -119,7 +120,7 @@ __Small Note__: Still exploring
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
-| [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/data-factory/) | ?
+| [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) | [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/) | ?
 
 __Small Note__: Still exploring
 </br>
