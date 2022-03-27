@@ -20,7 +20,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 ## Categories
 
 - [Infrastructure as Code](#infrastructure-as-code)
-- [IAM](#iam-identity-and-access-management)
+- [Identity Access Management(IAM) & Security](#identity-and-access-managementiam-and-security)
 - [Networking](#networking)
 - [Compute](#compute-container-orchestration-and-serverless)
 - [CDN and Load Balancer](#cdn-and-load-balancers)
@@ -37,13 +37,14 @@ You don't have to worry much about the option in each of your cloud provider of 
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS Solution Implementations](https://aws.amazon.com/solutions/campaign-implementations/) | [Azure Solution Ideas](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | ?
 | [AWS Reference Architecture Diagrams](https://aws.amazon.com/architecture/reference-architecture-diagrams/) | [Reference architectures on Azure](https://docs.microsoft.com/en-us/azure/architecture/browse/?filter=reference-architecture) | ?
+| ? | [Industry Solutions with Azure](https://docs.microsoft.com/en-us/azure/architecture/industries/healthcare) | ?
 </br>
 
 ## Infrastructure as Code
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS Cloudformation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Azure template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/) | ?
-| AWS Serverles Architecture model(SAM) | ? | ?
+| [AWS Serverles Architecture model(SAM)](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) | ? | ?
 | AWS CDK | ? | ?
 | [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) | [Terraform Google Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 
@@ -51,11 +52,15 @@ __Small Note__: While I think Azure use json for IaC, I know AWS have option for
 
 </br>
 
-## IAM: Identity and Access Management
+## Identity and Access Management(IAM) and Security
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) | [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) | ?
+| [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) | ? | ?
+| [KMS Keys](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) | ? | ?
+| [SSM Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) | ? | ?
+| [Secret Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) | ? |
 
 __Small Note__: Still exploring
 
@@ -154,3 +159,7 @@ __Small Note__: Still exploring
 
 __Small Note__: Still exploring
 </br>
+
+## Project Ideas
+
+- Multi-Cloud Architecture Converter: To convert architecture diagrams from one cloud provider to another. e.g AWS Reference Architecture diagram to its Azure equvalence etc
