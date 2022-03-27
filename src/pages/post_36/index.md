@@ -118,6 +118,7 @@ __Small Note__: Still exploring
 | [AWS SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) |  [Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) | ?
 | [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) |  [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) | ?
 | [Amazon Kinesis](https://docs.aws.amazon.com/kinesis/index.html) | [Azure Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/) | ?
+| [Apache Managed Service for Kafka(MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) | [Apache kafka on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction) | ?
 
 __Small Note__: Still exploring
 </br>
@@ -129,7 +130,6 @@ __Small Note__: Still exploring
 | [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | ?
 | [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | ?
 | [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/) | [Google BigQuery](https://cloud.google.com/bigquery/docs)
-| [Apache Managed Service for Kafka(MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) | [Apache kafka on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction) | ?
 | [ElasticCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html) | [Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) | ?
 
 __Small Note__: Still exploring
