@@ -18,13 +18,15 @@ postNum: "36"
 You don't have to worry much about the option in each of your cloud provider of choice during migration or going multi-cloud, this ever growing list could be of help to make informed decision:
 
 ## Categories
+
 - [Infrastructure as Code](#infrastructure-as-code)
 - [IAM](#iam-identity-and-access-management)
 - [Networking](#networking)
-- [Compute](#compute-and-container-orchestration)
+- [Compute](#compute-container-orchestration-and-serverless)
 - [CDN and Load Balancer](#cdn-and-load-balancers)
 - [Storage and File Systems](#storage-object-storage-and-file-systems)
 - [Databases](#databases)
+- [Continous Integration and Continous Delivery](#conitnous-integration-and-continous-delivery)
 - [Data Engineering](#data-analytics-aiml)
 
 ## Infrastructure as Code
@@ -42,11 +44,20 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 
 ## IAM: Identity and Access Management
 
-## Networking 
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) | [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) | ?
+</br>
+
+## Networking
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/) | ?
 
 </br>
 
-## Compute and Container Orchestration
+## Compute: Container Orchestration and Serverless
 
 | AWS                                   |           Azure                       | GCP                               |
 :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------:|:-------------------------:|
@@ -63,14 +74,36 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------:|:-----------------------------------------|
 [AWS Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) | [Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/) | ?
 | [Elastic Load Balancer(ALB, NLB, Classic)](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) | [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/) | ?
+| [AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html) | [Azure front Door](https://docs.microsoft.com/en-us/azure/frontdoor/) | ?
+| [API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) | [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/)
 </br>
 
 
 ## Storage (Object Storage) and File Systems
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS S3](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/) | ?
 </br>
 
 ## Databases
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | ?
+| [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | ?
+| [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | ? | [Google BigQuery](https://cloud.google.com/bigquery/docs)
 </br>
 
 ## Data Analytics AI/ML
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/data-factory/) | ?
+</br>
+
+## Conitnous Integration and Continous Delivery
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) | [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) | ?
 </br>
