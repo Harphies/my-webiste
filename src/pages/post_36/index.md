@@ -15,7 +15,7 @@ postNum: "36"
 <br/>
 
 # AWS | Azure | GCP Product or Services Options: The Goal is to make going multi-cloud less painful
-You don't have to worry much about the option in each of your cloud provider of choice during migration or going multi-cloud, this ever growing list could be of help to make informed decision:
+You don't have to worry much about the option in each of your cloud provider of choice during migration or going multi-cloud, this ever growing list could be of help to make informed decisions:
 
 ## Categories
 
