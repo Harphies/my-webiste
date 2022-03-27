@@ -25,7 +25,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 - [Compute](#compute-container-orchestration-and-serverless)
 - [CDN and Load Balancer](#cdn-and-load-balancers)
 - [Storage and Messaging](#storage-and-messaging)
-- [Databases](#databases-oltp-and-olap)
+- [Databases](#databasesdata-stores-oltp-and-olap)
 - [Continous Integration and Continous Delivery](#conitnous-integration-and-continous-delivery)
 - [Data Engineering](#data-analytics-aiml)
 - [Observability](#observability-logging-monitoring--tracing)
@@ -122,13 +122,15 @@ __Small Note__: Still exploring
 __Small Note__: Still exploring
 </br>
 
-## Databases: OLTP and OLAP
+## Databases(Data Stores): OLTP and OLAP
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | ?
 | [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | ?
 | [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | ? | [Google BigQuery](https://cloud.google.com/bigquery/docs)
+| [Apache Managed Service for Kafka(MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) | [Apache kafka on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction) | ?
+| [ElasticCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html) | [Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) | ?
 
 __Small Note__: Still exploring
 </br>
