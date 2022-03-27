@@ -71,6 +71,7 @@ __Small Note__: Still exploring
 | [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) | [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/) | [Cloud Functions](https://cloud.google.com/functions)
 | [AWS Amplify](https://docs.amplify.aws/) | [Azure app services](https://docs.microsoft.com/en-us/azure/app-service/) | ?
 | [AutoScaling Group(ASG) for EC2 Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) | [Azure Virtual Machine Scaling](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) | ?
+| [AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) | [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview) | ?
 
 __Small Note__: Still exploring
 </br>
