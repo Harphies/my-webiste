@@ -28,6 +28,15 @@ You don't have to worry much about the option in each of your cloud provider of 
 - [Databases](#databases-oltp-and-olap)
 - [Continous Integration and Continous Delivery](#conitnous-integration-and-continous-delivery)
 - [Data Engineering](#data-analytics-aiml)
+- [Observability](#observability-logging-monitoring--tracing)
+- [Learning Resources](#learning-resources)
+
+## Learning Resources
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS Solution Implementations](https://aws.amazon.com/solutions/campaign-implementations/) | [Azure Solution Ideas](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | ?
+</br>
 
 ## Infrastructure as Code
 | AWS                               | Azure                             | GCP                               |
@@ -66,12 +75,13 @@ __Small Note__: Still exploring
 | AWS                                   |           Azure                       | GCP                               |
 :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------:|:-------------------------:|
 | [Elastic Kubernetes Service(EKS)](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) | [Azure kubernetes Engine(AKS)](https://docs.microsoft.com/en-us/azure/aks/)    | [Google Kubernetes Engine(GKE)](https://cloud.google.com/kubernetes-engine/docs)
-| [Elastic Container Service(ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  | [Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/) | ?
+| [Elastic Container Service(ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  | [Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/) & [Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/) | ?
 | [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) | [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/) | ?
 | [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) | [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/) | [Cloud Functions](https://cloud.google.com/functions)
 | [AWS Amplify](https://docs.amplify.aws/) | [Azure app services](https://docs.microsoft.com/en-us/azure/app-service/) | ?
 | [AutoScaling Group(ASG) for EC2 Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) | [Azure Virtual Machine Scaling](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) | ?
 | [AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) | [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview) | ?
+| [Elastic Container Registry(ECR)](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html) | [Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) | ?
 
 __Small Note__: Still exploring
 </br>
@@ -131,6 +141,15 @@ __Small Note__: Still exploring
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) | [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) | ?
+
+__Small Note__: Still exploring
+</br>
+
+## Observability: Logging &Monitoring & Tracing
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS CloudWatch](https://docs.aws.amazon.com/cloudwatch/index.html) | [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/) | ?
 
 __Small Note__: Still exploring
 </br>
