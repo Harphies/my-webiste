@@ -80,8 +80,8 @@ __Small Note__: Still exploring
 
 | AWS                                   |           Azure                       | GCP                               |
 :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------:|:-------------------------:|
-| [Elastic Kubernetes Service(EKS)](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) | [Azure kubernetes Engine(AKS)](https://docs.microsoft.com/en-us/azure/aks/)    | [Google Kubernetes Engine(GKE)](https://cloud.google.com/kubernetes-engine/docs)
-| [Elastic Container Service(ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  | [Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/) & [Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/) | ?
+| [Elastic Kubernetes Service(EKS)](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) | [Azure kubernetes Engine(AKS)](https://docs.microsoft.com/en-us/azure/aks/) & [Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/) | [Google Kubernetes Engine(GKE)](https://cloud.google.com/kubernetes-engine/docs)
+| [Elastic Container Service(ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  | [Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/) | ?
 | [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) | [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/) | ?
 | [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) | [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/) | [Cloud Functions](https://cloud.google.com/functions)
 | [AWS Amplify](https://docs.amplify.aws/) | [Azure app services](https://docs.microsoft.com/en-us/azure/app-service/) | ?
@@ -128,7 +128,7 @@ __Small Note__: Still exploring
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | ?
 | [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | ?
-| [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | ? | [Google BigQuery](https://cloud.google.com/bigquery/docs)
+| [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/) | [Google BigQuery](https://cloud.google.com/bigquery/docs)
 | [Apache Managed Service for Kafka(MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) | [Apache kafka on Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction) | ?
 | [ElasticCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html) | [Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) | ?
 
@@ -140,6 +140,7 @@ __Small Note__: Still exploring
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) | [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/) | ?
+| [AWS QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) | [Power BI on Azure](https://docs.microsoft.com/en-us/power-bi/guidance/) | ?
 
 __Small Note__: Still exploring
 </br>
