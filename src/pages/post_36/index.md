@@ -14,16 +14,16 @@ postNum: "36"
 <br/>
 <br/>
 
-# AWS | Azure | GCP Product or Services Options
-You don't have to worry much about the option in each of your cloud provider of choise during migration or going multi-cloud, this ever growing list could be of help to make informed decision:
+# AWS | Azure | GCP Product or Services Options: The Goal is to make going multi-cloud less painful
+You don't have to worry much about the option in each of your cloud provider of choice during migration or going multi-cloud, this ever growing list could be of help to make informed decision:
 
 ## Categories
 - [Infrastructure as Code](#infrastructure-as-code)
+- [IAM](#iam-identity-and-access-management)
 - [Networking](#networking)
 - [Compute](#compute-and-container-orchestration)
 - [CDN and Load Balancer](#cdn-and-load-balancers)
-- [Storage](#storage-object-storage)
-- [File Systems](#file-systems)
+- [Storage and File Systems](#storage-object-storage-and-file-systems)
 - [Databases](#databases)
 - [Data Engineering](#data-analytics-aiml)
 
@@ -33,14 +33,17 @@ You don't have to worry much about the option in each of your cloud provider of 
 | [AWS Cloudformation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Azure template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/) | ?
 | AWS Serverles Architecture model(SAM) | ? | ?
 | AWS CDK | ? | ?
-| [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | [Terraform Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) | [Terraform Google Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
+| [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) | [Terraform Google Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 
 </br>
 Small Note: While I think Azure use json for IaC, I know AWS have option for YAML and JSON and I personally do prefer YAML in a lot of times. Likewise, AWS have much tooling for IaC other than Cloudformation template includding CDK, SAM
 
 </br>
 
+## IAM: Identity and Access Management
+
 ## Networking 
+
 </br>
 
 ## Compute and Container Orchestration
@@ -55,13 +58,15 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 </br>
 
 ## CDN and Load Balancers
+
+| AWS                                   |       Azure                           |   GCP                             |
+:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------:|:-----------------------------------------|
+[AWS Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html) | [Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/) | ?
+| [Elastic Load Balancer(ALB, NLB, Classic)](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) | [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/) | ?
 </br>
 
 
-## Storage (Object Storage)
-</br>
-
-## File Systems
+## Storage (Object Storage) and File Systems
 </br>
 
 ## Databases
