@@ -37,7 +37,6 @@ You don't have to worry much about the option in each of your cloud provider of 
 | AWS CDK | ? | ?
 | [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) | [Terraform Google Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 
-</br>
 Small Note: While I think Azure use json for IaC, I know AWS have option for YAML and JSON and I personally do prefer YAML in a lot of times. Likewise, AWS have much tooling for IaC other than Cloudformation template includding CDK, SAM
 
 </br>
@@ -47,6 +46,9 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) | [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/) | ?
+
+Small Note: Still exploring
+
 </br>
 
 ## Networking
@@ -54,6 +56,8 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/) | ?
+
+Small Note: Still exploring
 
 </br>
 
@@ -66,6 +70,8 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 | [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) | [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/) | ?
 | [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) | [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/) | [Cloud Functions](https://cloud.google.com/functions)
 | [AWS Amplify](https://docs.amplify.aws/) | [Azure app services](https://docs.microsoft.com/en-us/azure/app-service/) | ?
+
+Small Note: Still exploring
 </br>
 
 ## CDN and Load Balancers
@@ -76,14 +82,17 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 | [Elastic Load Balancer(ALB, NLB, Classic)](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) | [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/) | ?
 | [AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html) | [Azure front Door](https://docs.microsoft.com/en-us/azure/frontdoor/) | ?
 | [API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) | [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/)
-</br>
 
+Small Note: Still exploring
+</br>
 
 ## Storage (Object Storage) and File Systems
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS S3](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/) | ?
+
+Small Note: Still exploring
 </br>
 
 ## Databases
@@ -93,12 +102,17 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 | [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | ?
 | [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | ?
 | [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | ? | [Google BigQuery](https://cloud.google.com/bigquery/docs)
+
+Small Note: Still exploring
 </br>
 
 ## Data Analytics AI/ML
+
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/data-factory/) | ?
+
+Small Note: Still exploring
 </br>
 
 ## Conitnous Integration and Continous Delivery
@@ -106,4 +120,6 @@ Small Note: While I think Azure use json for IaC, I know AWS have option for YAM
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
 | [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) | [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) | ?
+
+Small Note: Still exploring
 </br>
