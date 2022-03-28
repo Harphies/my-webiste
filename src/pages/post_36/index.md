@@ -26,9 +26,9 @@ You don't have to worry much about the option in each of your cloud provider of 
 - [CDN and Load Balancer](#cdn-and-load-balancers)
 - [Storage and Messaging](#storage-and-messaging)
 - [Databases](#databasesdata-stores-oltp-and-olap)
-- [Continous Integration and Continous Delivery](#conitnous-integration-and-continous-delivery)
+- [Continous Integration and Continous Delivery](#continous-integration-and-continous-delivery)
 - [Data Engineering](#data-analytics-aiml)
-- [Observability](#observability-logging-monitoring--tracing)
+- [Observability](#observability-logging-monitoring-and-distributed-tracing)
 - [Learning Resources](#learning-resources)
 
 ## Learning Resources
@@ -135,7 +135,7 @@ __Small Note__: Still exploring
 __Small Note__: Still exploring
 </br>
 
-## Data Analytics AI/ML
+## Data Analytics, AI/ML
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
@@ -145,7 +145,7 @@ __Small Note__: Still exploring
 __Small Note__: Still exploring
 </br>
 
-## Conitnous Integration and Continous Delivery
+## Continous Integration and Continous Delivery
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
@@ -154,7 +154,7 @@ __Small Note__: Still exploring
 __Small Note__: Still exploring
 </br>
 
-## Observability: Logging &Monitoring & Tracing
+## Observability: Logging, Monitoring and Distributed Tracing
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
