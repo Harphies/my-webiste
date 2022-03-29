@@ -38,6 +38,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 | [AWS Solution Implementations](https://aws.amazon.com/solutions/campaign-implementations/) | [Azure Solution Ideas](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data) | ?
 | [AWS Reference Architecture Diagrams](https://aws.amazon.com/architecture/reference-architecture-diagrams/) | [Reference architectures on Azure](https://docs.microsoft.com/en-us/azure/architecture/browse/?filter=reference-architecture) | ?
 | ? | [Industry Solutions with Azure](https://docs.microsoft.com/en-us/azure/architecture/industries/healthcare) | ?
+| [AWS DevOps](https://aws.amazon.com/devops/resources/) | [Azure DevOps Product](https://azure.microsoft.com/en-gb/solutions/devops/#products) | ?
 </br>
 
 ## Infrastructure as Code
@@ -149,9 +150,13 @@ __Small Note__: Still exploring
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
-| [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) | [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) | ?
+| [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) | [Azure Pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) | ?
+| [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) | [Azure Repos](https://docs.microsoft.com/en-us/azure/devops/repos/?view=azure-devops) | ?
+| [AWS Code Build](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html) | ? | ? 
+| [AWS Code Deploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html) | ? | ?
+| ? | [Azure Boards](https://azure.microsoft.com/en-gb/services/devops/boards/) | ? 
 
-__Small Note__: Still exploring
+__Small Note__: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) Is a package of tools that includes Azure Pipeline, Azure Repo etc for DevOps practices on Azure. While on AWS,[AWS DevOps](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/welcome.html) have CodePipeline, Code Build, Code Deploy and Code Commit for all CI/CD Operations and DevOps Practices
 </br>
 
 ## Observability: Logging, Monitoring and Distributed Tracing
