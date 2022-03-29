@@ -44,7 +44,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 ## Infrastructure as Code
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
-| [AWS Cloudformation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Azure template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/) | ?
+| [AWS Cloudformation template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Azure template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/) | [Google Deployment Manager](https://cloud.google.com/deployment-manager/docs)
 | [AWS Serverles Architecture model(SAM)](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) | ? | ?
 | AWS CDK | ? | ?
 | [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) | [Terraform Google Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
@@ -83,7 +83,7 @@ __Small Note__: Still exploring
 :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------:|:-------------------------:|
 | [Elastic Kubernetes Service(EKS)](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) | [Azure kubernetes Engine(AKS)](https://docs.microsoft.com/en-us/azure/aks/) & [Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/) | [Google Kubernetes Engine(GKE)](https://cloud.google.com/kubernetes-engine/docs)
 | [Elastic Container Service(ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  | [Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/) | ?
-| [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) | [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/) | ?
+| [EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) | [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/) | [Compute Engine](https://cloud.google.com/compute/docs)
 | [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) | [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/) | [Cloud Functions](https://cloud.google.com/functions)
 | [AWS Amplify](https://docs.amplify.aws/) | [Azure app services](https://docs.microsoft.com/en-us/azure/app-service/) | ?
 | [AutoScaling Group(ASG) for EC2 Instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) | [Azure Virtual Machine Scaling](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview) | ?
@@ -111,7 +111,7 @@ __Small Note__: Still exploring
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
-| [AWS S3](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/) | ?
+| [AWS S3](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) | [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/) | [Cloud Storage](https://cloud.google.com/storage/docs)
 | [AWS EFS](https://docs.aws.amazon.com/efs/) | [Azure Files](https://azure.microsoft.com/en-us/services/storage/files/) |
 | [EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) | [Azure managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview) | ?
 | [AWS Backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html) | [Azure Backups](https://docs.microsoft.com/en-us/azure/backup/) | ?
@@ -128,8 +128,8 @@ __Small Note__: Still exploring
 
 | AWS                               | Azure                             | GCP                               |
 :------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
-| [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | ?
-| [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | ?
+| [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) | [Azure SQL](https://docs.microsoft.com/en-us/azure/azure-sql/) | [Cloud SQL](https://cloud.google.com/sql/docs)
+| [AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) | [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/) | [Real-time Firebase & Firestore](https://cloud.google.com/firestore)
 | [AWS RedShift](https://docs.aws.amazon.com/redshift/latest/gsg/sample-data-load.html) | [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/) | [Google BigQuery](https://cloud.google.com/bigquery/docs)
 | [ElasticCache for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html) | [Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) | ?
 
