@@ -19,6 +19,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 
 ## Categories
 
+- [Account Structure](#account-structure)
 - [Infrastructure as Code](#infrastructure-as-code)
 - [Identity Access Management(IAM) & Security](#identity-and-access-managementiam-and-security)
 - [Networking](#networking)
@@ -40,6 +41,19 @@ You don't have to worry much about the option in each of your cloud provider of 
 | ? | [Industry Solutions with Azure](https://docs.microsoft.com/en-us/azure/architecture/industries/healthcare) | ?
 | [AWS DevOps](https://aws.amazon.com/devops/resources/) | [Azure DevOps Product](https://azure.microsoft.com/en-gb/solutions/devops/#products) | ?
 | [Well-Architected Framework Pillars on AWS](https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/) | [Well-Architected Framework Pillars on Azure](https://docs.microsoft.com/en-us/azure/architecture/framework/) | ?
+| [AWS Root Account / Parent Account]() | [Azure Tenant/Directory]() | ? 
+| [AWS Organization Units]() |[Azure Management Groups]() | ?
+| [AWS Child Accounts]() |[Azure Subscriptions]() | ?
+| [AWS Services]() | [Azure Resources]() | ?
+</br>
+
+## Account Structure
+
+| AWS                               | Azure                             | GCP                               |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------:|:----------------------------------|
+| [AWS Root Account / Parent Account]() | [Azure Tenant/Directory]() | ? 
+| [AWS Organization Units]() |[Azure Management Groups]() | ?
+| [AWS Child Accounts]() |[Azure Subscriptions]() | ?
 </br>
 
 ## Infrastructure as Code
@@ -168,3 +182,8 @@ __Small Note__: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/use
 
 __Small Note__: Still exploring
 </br>
+
+## Other Useful Resources
+
+- [Account Structure Comparison between AWS and Azure](https://cloudstudio.com.au/2021/05/29/account-structure-aws-vs-azure/)
+- [Account Structure Comparison between AWS and Azure and GCP](https://www.business2community.com/cloud-computing/aws-vs-azure-vs-google-cloud-governance-models-02342693)
