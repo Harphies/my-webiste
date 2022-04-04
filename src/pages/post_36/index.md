@@ -39,6 +39,7 @@ You don't have to worry much about the option in each of your cloud provider of 
 | [AWS Reference Architecture Diagrams](https://aws.amazon.com/architecture/reference-architecture-diagrams/) | [Reference architectures on Azure](https://docs.microsoft.com/en-us/azure/architecture/browse/?filter=reference-architecture) | ?
 | ? | [Industry Solutions with Azure](https://docs.microsoft.com/en-us/azure/architecture/industries/healthcare) | ?
 | [AWS DevOps](https://aws.amazon.com/devops/resources/) | [Azure DevOps Product](https://azure.microsoft.com/en-gb/solutions/devops/#products) | ?
+| [Well-Architected Framework Pillars on AWS](https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/) | [Well-Architected Framework Pillars on Azure](https://docs.microsoft.com/en-us/azure/architecture/framework/) | ?
 </br>
 
 ## Infrastructure as Code
