@@ -7,7 +7,7 @@ timeToRead: "6"
 smallTitle: "AI Psychology"
 description: "The neurocience and psychology understanding of AI and way forward."
 postNum: "5"
-ogimage: "./cover_5.jpg"
+# ogimage: "./cover_5.jpg"
 ---
 
 <!-- <img src="cover_5.jpg"/> -->
