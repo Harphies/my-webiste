@@ -4,8 +4,8 @@ date: "2023-06-03"
 title: "AWS ECR Auto Login on Kubernetes Self-Hosted Gitlab Runner"
 author: "Olalekan Taofeek"
 timeToRead: "10"
-smallTitle: "AWS ECR Auto Login on Gitlab Runner"
-description: "AWS ECR Auto Login on Gitlab Runner"
+smallTitle: "AWS ECR Auto Login on Kubernetes Self-Hosted Gitlab Runner"
+description: "AWS ECR Auto Login on Kubernetes Self-Hosted Gitlab Runner"
 postNum: "37"
 ---
 
