@@ -57,7 +57,7 @@ ecr_pull_image:
 
 * Use [AWS ECR Helper](https://github.com/awslabs/amazon-ecr-credential-helper) binary to auto-login and get credentials.
 
-In this approach we've [added an extra binary to the runner base image]() that automatically logged in to ECR before pulling the image, 
+In this approach we've [added an extra binary to the runner base image](#baking-ecr-helper-into-gitlab-runner-kubernetes-executor) that automatically logged in to ECR before pulling the image, 
 
 ```yml
 ecr_pull_image:
@@ -124,12 +124,22 @@ ENV PATH="/usr/local/bin:${PATH}"
 
 ### Configure the credential helpers
 
-There is a [json config](./docker-ecr-config.json) which needs to be exported into  `~/.docker/config.json`.
-This can be achieved with the combination of pre build script and environment variables; just marshall the [json config](./docker-ecr-config.json) to string and use the pre build script to export it to the `~/.docker/config.json`. Please read the [gitlab advanced config](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-section) docs carefully on this.
+There is a json config below which needs to be exported into  `~/.docker/config.json`.
+This can be achieved with the combination of pre build script and environment variables; just marshall the json config content to string and use the pre build script to export it to the `~/.docker/config.json`. Please read the [gitlab advanced config](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-section) docs carefully on this.
+
+```json
+{
+    "credsStore": "ecr-login",
+    "credHelpers": {
+        "public.ecr.awss": "ecr-login",
+        "<your_master_aws_account_where_ecr_image_comes_from>.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login"
+    }
+}
+```
 
 ### Override the runner helm chart values
 
-Use the custom built helper image in your chart values [helm chart values](https://gitlab.com/gitlab-org/charts/gitlab-runner/-/blob/main/values.yaml)
+Use the custom built helper image as the helper image key value in the `toml` and the marshalled json value for the value of `DOCKER_AUTH_CONFIG` variable in your chart values override [helm chart values](https://gitlab.com/gitlab-org/charts/gitlab-runner/-/blob/main/values.yaml)
 
 ```toml
   config: |
