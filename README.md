@@ -1,7 +1,7 @@
 # My Personal Website
 
 
-## Deployment
+## Deployment Guides
 
 Ensure all images use in post are of `400px`
 
