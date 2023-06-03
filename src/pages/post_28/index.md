@@ -9,19 +9,19 @@ description: "Ingress Controller on Kubernetes with AWS ALB"
 postNum: "28"
 ---
 
-<img src="./alb-ingress-controller.png"/>
+<img src="./alb-ing.jpeg"/>
 <br/>
 <br/>
 <br/>
 
 
-**Steps to getting AWS ALB Ingress Controller Working in Your EKS Cluster**
+## **Steps to getting AWS ALB Ingress Controller Working in Your EKS Cluster**
 
 Note: Some level of working with kubernetes, terraform, AWS and Helm is required
 
 Stage1: Helm Chart Installation and Helm Chart Values--With Terraform
 
-```
+```yaml
 Step1: 
 create a terraform template to parametarise the Ingress Helm chart values for improved code structure and future updates
 

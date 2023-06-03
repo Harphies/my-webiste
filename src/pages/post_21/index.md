@@ -9,7 +9,7 @@ description: "A recommender engine for personalized contents for a user."
 postNum: "21"
 ---
 
-<img src="./cover_21.png"/>
+<img src="./new-rec-system.jpeg"/>
 <br/>
 
 **Recommendation Systems** Recommendation system has become an integral part of many applications in recent time and mostly web applications. it's about recommending something to users based on thier preferences.
@@ -24,11 +24,11 @@ postNum: "21"
   - Content-Filtering Recommender
   - Collaborative Filtering Recommender
 
-## Collaborative filtering based recommender systems.
+## Collaborative filtering based recommender systems
 
 - Filtering based on comparison between an item and a user profile. The key idea is that similar users share the same interest on similar items, and those similar items are liked by a user.
 
-# Colaborative based filtering approaches.
+## Colaborative based filtering approaches
 
 - Nearest Neighborhood
 - Matrix factorization
@@ -38,7 +38,7 @@ postNum: "21"
 - Pearson correlation
 - Cosine similarity
 
-## Item-based collaborative filtering. Aim to compute the item similarities by computing the item vector and calculate the similarity score.
+## Item-based collaborative filtering. Aim to compute the item similarities by computing the item vector and calculate the similarity score
 
 **Some Applications of Recommendation Systesm**
 

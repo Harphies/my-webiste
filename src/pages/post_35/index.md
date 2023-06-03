@@ -9,12 +9,12 @@ description: "Kubernetes Operators vs Controllers"
 postNum: "35"
 ---
 
-<img src="./k8s-ops-and-objs.png"/>
+<!-- <img src="./k8s-ops-and-objs.png"/> -->
 <br/>
 <br/>
 <br/>
 
-## Prerequisites:
+## Prerequisites
 
 Kubernetes is known to be a [declarative](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/) platform as opposed to imperative; meaning: you don't need to specify the sequence and logics of how things should work, you just need to declare the end result expected(desired state) you want the resources to be and kubernetes will try to make that happen and maintain that state for that resource
 

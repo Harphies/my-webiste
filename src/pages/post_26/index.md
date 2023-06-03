@@ -9,12 +9,11 @@ description: "Running Machine learning and deep learning Inferences on IoT devic
 postNum: "26"
 ---
 
-<img src="./cover_26.png"/>
 <br/>
 <br/>
 <br/>
 
-**The era of always-on tiny machine learning on IoT devices with MCUNet**
+## **The era of always-on tiny machine learning on IoT devices with MCUNet**
 
 The constraint resources of most embedded devices pose a challenge to fitting the off-the-shelf machine learning and deep learning model directly to them. However, embedded IoT devices are still one of the best ways we can bring AI Applications to every aspect of our daily life including personalized healthcare, precision agriculture, smart cities, homes and smart factories—which will give many people including those in the low-resource end with less quality Internet resources to enjoy the benefit of AI.
 

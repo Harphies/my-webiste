@@ -9,7 +9,7 @@ description: "Multi container application deployment with docker swarm"
 postNum: "25"
 ---
 
-<img src="./cover_25.png"/>
+<img src="./dis.jpeg"/>
 <br/>
 <br/>
 <br/>

@@ -9,13 +9,13 @@ description: "Kubernetes Container Storage Interface Implementation with AWS EFS
 postNum: "29"
 ---
 
-<img src="./k8s-storage.png"/>
+<!-- <img src="./k8s-storage.png"/> -->
 <br/>
 <br/>
 <br/>
 
 
-**Steps to getting kubernetes persistent storage working in Your EKS Cluster with EFS provisioner using Terraform and Helm**
+## **Steps to getting kubernetes persistent storage working in Your EKS Cluster with EFS provisioner using Terraform and Helm**
 
 Note: Some level of working with kubernetes, terraform, AWS and Helm is required
 

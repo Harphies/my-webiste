@@ -9,7 +9,7 @@ description: "Multi-Cloud Providers Comparism"
 postNum: "36"
 ---
 
-<img src="./multi-cloud.jpg"/>
+<!-- <img src="./multi-cloud.jpg"/> -->
 <br/>
 <br/>
 <br/>
