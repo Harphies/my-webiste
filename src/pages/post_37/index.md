@@ -16,6 +16,17 @@ postNum: "37"
 
 ## **Simplifying Gitlab Self-Hosted Runner Integration with AWS Elastic Container Registry(ECR)**
 
+- [Topic](#topic)
+- [Options Considered](#options-considered)
+- [Option Recommended](#option-recommended)
+- [Baking ECR Helper into Gitlab Runner Kubernetes Executor](#baking-ecr-helper-into-gitlab-runner-kubernetes-executor)
+  - [Build the helper Image](#build-the-helper-image)
+  - [Configure the credential helpers](#configure-the-credential-helpers)
+  - [Override the runner helm chart values](#override-the-runner-helm-chart-values)
+- [Issues and Considerations](#issues-and-considerations)
+- [Conclusion](#conclusion)
+
+
 ## Topic
 
 Auto Authenticate to AWS ECR with Self-Hosted Gitlab Runner on Kubernetes.
