@@ -8,10 +8,10 @@ timeToRead: "5"
 smallTitle: "AI Phases"
 description: "Phases of AI adoption in the Indutry and the majurity stages."
 postNum: "1"
-ogimage: "./cover_1.png"
+ogimage: "./new-ai.jpeg"
 ---
 
-<img src="cover_1.png"/>
+<img src="new-ai.jpeg"/>
 <br/>
 
 **Artificialintelligence** is ubiquitous in almost every cutting edge applications in recent time and it's very crucial to highlight the stages of #ai maturity in the industry and the stage where an organization can start the adoption from. Below are the stages of #ai phases in the Industry;

@@ -1,0 +1,27 @@
+
+# Initialize stage
+Initializing:
+  stage: initialize
+  script:
+    - echo "Completed"
+
+# Building stage
+Building:
+  stage: build
+  script:
+    - echo "Completed"
+
+Deploying:
+  stage: deploy
+  script:
+    - echo "Completed"
+
+Cleanup:
+  stage: cleanup
+  script:
+    - echo "Completed"
+
+Post-processing:
+  stage: post-processing
+  script:
+    - echo "Completed"
