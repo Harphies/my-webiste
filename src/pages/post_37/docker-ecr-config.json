@@ -1,0 +1,7 @@
+{
+    "credsStore": "ecr-login",
+    "credHelpers": {
+        "public.ecr.awss": "ecr-login",
+        "<your_master_aws_account_where_ecr_image_comes_from>.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login"
+    }
+}
