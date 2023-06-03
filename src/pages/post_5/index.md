@@ -10,7 +10,7 @@ postNum: "5"
 ogimage: "./cover_5.jpg"
 ---
 
-<img src="cover_5.jpg"/>
+<!-- <img src="cover_5.jpg"/> -->
 <br/>
 
 I read Thinking fast and Slow by Daniel Kahneman few months ago and Blink by Malcom Gladwell.

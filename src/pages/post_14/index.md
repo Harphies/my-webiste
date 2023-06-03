@@ -7,10 +7,10 @@ timeToRead: "1"
 smallTitle: "Machine unlearning"
 description: "Understanding machine unlearning and how it influence models performance in production."
 postNum: "14"
-ogimage: "./cover_14.jpg"
+# ogimage: "./cover_14.jpg"
 ---
 
-<img src="./cover_14.jpg"/>
+<!-- <img src="./cover_14.jpg"/> -->
 <br/>
 
 **GDPR** and other data privacy policies is something that needs to be revisited among the #deeplearning researchers.
