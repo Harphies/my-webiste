@@ -37,7 +37,7 @@ When pulling an image from a private AWS ECR repository using the gitlab kuberne
 ecr_pull_image:
   stage: build
   variables:
-    ECR_REGISTRY: <account_id>.dkr.ecr.eu-west-2.amazonaws.com
+    ECR_REGISTRY: <account_id>.dkr.ecr.<aws_region>.amazonaws.com
     AWS_REGION: eu-west-2
     ECR_REPO: <repo_name>
     IMAGE_TAG: <image_tag>
@@ -57,7 +57,7 @@ In this approach, a docker command line is used each time the pipeline runs and 
 ecr_pull_image:
   stage: build
   variables:
-    ECR_REGISTRY: <account_id>.dkr.ecr.eu-west-2.amazonaws.com
+    ECR_REGISTRY: <account_id>.dkr.ecr.<aws_region>.amazonaws.com
     AWS_REGION: eu-west-2
     ECR_REPO: <repo_name>
     IMAGE_TAG: <image_tag>
@@ -74,7 +74,7 @@ In this approach we've [added an extra binary to the runner base image](#baking-
 ecr_pull_image:
   stage: build
   variables:
-    ECR_REGISTRY: 078476533477.dkr.ecr.eu-west-2.amazonaws.com
+    ECR_REGISTRY: <account_id>.dkr.ecr.<aws_region>.amazonaws.com
     AWS_REGION: eu-west-2
     ECR_REPO: services/streamex-ingester
     IMAGE_TAG: v0.1
@@ -143,7 +143,7 @@ This can be achieved with the combination of pre build script and environment va
     "credsStore": "ecr-login",
     "credHelpers": {
         "public.ecr.awss": "ecr-login",
-        "<your_master_aws_account_where_ecr_image_comes_from>.dkr.ecr.eu-west-2.amazonaws.com": "ecr-login"
+        "<your_master_aws_account_where_ecr_image_comes_from>.dkr.ecr.<aws_region>.amazonaws.com": "ecr-login"
     }
 }
 ```
