@@ -1,25 +1,38 @@
 ---
 path: "/blogs/k8s-aws-alb"
 date: "2022-01-22"
-title: "Kubernetes Ingress Controller with AWS ALB Ingress Controller"
+title: "Kubernetes Load Balancing and Ingress Controller with AWS ALB Ingress Controller"
 author: "Olalekan Taofeek"
 timeToRead: "5"
 smallTitle: "Kubernetes Ingress Controller with ALB"
-description: "Ingress Controller on Kubernetes with AWS ALB"
+description: "Ingress Controller and Load Balancing on Kubernetes with AWS ALB"
 postNum: "28"
 ---
 
-<img src="./alb-ing.jpeg"/>
+<img src="./alb-ingress-controller.png"/>
 <br/>
 <br/>
 <br/>
 
 
-## **Steps to getting AWS ALB Ingress Controller Working in Your EKS Cluster**
+## **Kubernetes Load balncing and Ingress with AWS ALB Ingress Controller on EKS Cluster**
 
-Note: Some level of working with kubernetes, terraform, AWS and Helm is required
+Ingress controller will accept traffic from outside kubernetes cluster, and load balance it to pods running behind a service inside the cluster.
 
-Stage1: Helm Chart Installation and Helm Chart Values--With Terraform
+## Prerequisites
+
+* Some level of working with kubernetes, terraform, AWS and Helm is required
+* A Kubernetes cluster running on EKS,AKS,GKE or OpenShift.
+
+## Capabilities
+
+* Ingresss
+* Load balancing
+* TLS Termination
+
+## Congiguration Setup
+
+### Helm Chart Installation and Helm Chart Values--With Terraform
 
 ```yaml
 Step1: 
