@@ -88,7 +88,7 @@ ecr_pull_image:
 
 ## Option Recommended
 
-The recommend solution is with the [ecr auto login helper](#use-aws-ecr-helper-binary-to-take-care-of-the-login) because teams(users of the pipelines runner) don't have to worry about extra steps in their pipelines `.gitlab-c-.yml` files to authenticate to ecr as this is already simplified and abstracted at the platform layer.
+The recommend solution is with the [ecr auto login helper](#use-aws-ecr-helper-binary-to-take-care-of-the-login) because teams(users of the pipelines runner) don't have to worry about extra steps in their pipelines `.gitlab-ci.yml` files to authenticate to ecr as this is already simplified and abstracted at the platform layer.
 
 ## Issues and Considerations
 
@@ -100,7 +100,7 @@ A proper [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-s
 
 ## Baking ECR Helper into Gitlab Runner Kubernetes Executor
 
-The Gitlab runner kubernetes executor provides a [helm chart](https://docs.gitlab.com/runner/install/kubernetes.html) to deploy the exexutor onto your cluster(EKS, GKE, AKS, Openshift etc) and to abstract some functionality away to the platform layer such as aws cli command, kubectl, helm etc, all these can be baked in into what gitlab called [helper image](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#helper-image-configuration-for-kubernetes-on-arm).
+The Gitlab runner kubernetes executor provides a [helm chart](https://docs.gitlab.com/runner/install/kubernetes.html) to deploy the executor onto your cluster(EKS, GKE, AKS, Openshift etc) and to abstract some functionality away to the platform layer such as docker cli , aws, kubectl, helm etc. All these can be baked in into what gitlab called [helper image](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#helper-image-configuration-for-kubernetes-on-arm).
 
 ### Build the helper Image
 
@@ -109,9 +109,9 @@ You can extend the helper image and baked in extra functionality into it and use
 ```Dockerfile
 FROM alpine:3.15
 
-ENV ECR_HELPER_VERSION=0.7.0
-ENV TARGET_OS=linux
-ENV TARGETARCH=amd64
+ENV ECR_HELPER_VERSION=0.7.0 \
+    TARGET_OS=linux \
+    TARGETARCH=amd64
 
 RUN apk --no-cache add \
     openssl \
