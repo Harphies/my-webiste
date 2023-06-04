@@ -37,10 +37,10 @@ When pulling an image from a private AWS ECR repository using the gitlab kuberne
 ecr_pull_image:
   stage: build
   variables:
-    ECR_REGISTRY: 078476533477.dkr.ecr.eu-west-2.amazonaws.com
+    ECR_REGISTRY: <account_id>.dkr.ecr.eu-west-2.amazonaws.com
     AWS_REGION: eu-west-2
-    ECR_REPO: services/streamex-ingester
-    IMAGE_TAG: v0.1
+    ECR_REPO: <repo_name>
+    IMAGE_TAG: <image_tag>
   script:
     - echo "Testing pulling private ECR repository image"
     - docker pull ${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}
@@ -57,10 +57,10 @@ In this approach, a docker command line is used each time the pipeline runs and 
 ecr_pull_image:
   stage: build
   variables:
-    ECR_REGISTRY: 078476533477.dkr.ecr.eu-west-2.amazonaws.com
+    ECR_REGISTRY: <account_id>.dkr.ecr.eu-west-2.amazonaws.com
     AWS_REGION: eu-west-2
-    ECR_REPO: services/streamex-ingester
-    IMAGE_TAG: v0.1
+    ECR_REPO: <repo_name>
+    IMAGE_TAG: <image_tag>
   script:
     - aws ecr get-login-password | docker login --username AWS --password-stdin ${ECR_REGISTRY}
     - docker pull ${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}
