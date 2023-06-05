@@ -208,7 +208,7 @@ Note: External DNS configuration also rely heavily on [annotations](https://kube
 
 ## Example Usage
 
-An example usage to do path-based service routing with custom AWS Roure53 Record to access the service on configured via external dns deployment that filter my custom route53 zone.
+An example usage to do path-based service routing with custom AWS Route53 Record to access the service on configured DNS via external dns deployment that filter a custom route53 zone.
 
 ```yaml
 ---
