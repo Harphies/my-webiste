@@ -28,11 +28,11 @@ Ingress controller will accept traffic from outside kubernetes cluster, and load
 ## Capabilities
 
 * Path based routing
-  * Using a single hostname we can route traffic to different backend services based on path.
+  * Geographical traffic routing to different backend services based on path behind a hostname.
 * Canary
-  * We can release our service incrementally to a subset of users
+  * Release service incrementally to a subset of users
 * A/B Testing
-  * We have different versions of the same service run simultaneously in the same environment for a given period of time as an experiment
+  * Have different versions of the same service run simultaneously in the same environment for a given period of time for weighted experiment
   * The experimental services can be controlled a number of ways:
     * via feature flags toggling
     * via A/B test tools
@@ -42,7 +42,7 @@ Ingress controller will accept traffic from outside kubernetes cluster, and load
   * Quality assurance and user acceptance testing can be done on the green (staging) environment prior to promotion
 
 * Rate Limiting
-  * We can use a technique called `rate limiting`, this is actually an API gateway use case that limits the incoming request rate to a value we set for our service.
+  * We can use a technique called `rate limiting`, this is an API gateway use case that limits the incoming request rate to a value we set for a service.
   * This value is typically a value we expect for real users.
 
 
