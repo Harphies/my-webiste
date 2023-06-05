@@ -3,7 +3,7 @@ path: "/blogs/k8s-aws-alb"
 date: "2022-01-22"
 title: "Kubernetes Load Balancing and Ingress Controller with AWS ALB Ingress Controller"
 author: "Olalekan Taofeek"
-timeToRead: "5"
+timeToRead: "10"
 smallTitle: "Kubernetes Ingress Controller with ALB"
 description: "Ingress Controller and Load Balancing on Kubernetes with AWS ALB"
 postNum: "28"
@@ -22,22 +22,37 @@ Ingress controller will accept traffic from outside kubernetes cluster, and load
 ## Prerequisites
 
 * Some level of working with kubernetes, terraform, AWS and Helm is required
+* Some level of GitOps understanding, [GitOps Principle](https://opengitops.dev/#principles) and a GitOps controller e.g [FluxCD](https://fluxcd.io/flux/components/source/) or [ArgoCd](https://argo-cd.readthedocs.io/en/stable/).
 * A Kubernetes cluster running on EKS,AKS,GKE or OpenShift.
 
 ## Capabilities
 
-* Ingresss
-* Load balancing
-* TLS Termination
+* Path based routing
+  * Using a single hostname we can route traffic to different backend services based on path.
+* Canary
+  * We can release our service incrementally to a subset of users
+* A/B Testing
+  * We have different versions of the same service run simultaneously in the same environment for a given period of time as an experiment
+  * The experimental services can be controlled a number of ways:
+    * via feature flags toggling
+    * via A/B test tools
+    * via distinct service deployments
+* Blue/Green
+  * User traffic is shifted from the green (stagging) environment to the blue (production) environment
+  * Quality assurance and user acceptance testing can be done on the green (staging) environment prior to promotion
 
-## Congiguration Setup
+* Rate Limiting
+  * We can use a technique called `rate limiting`, this is actually an API gateway use case that limits the incoming request rate to a value we set for our service.
+  * This value is typically a value we expect for real users.
 
-### Helm Chart Installation and Helm Chart Values--With Terraform
+
+## Setup and Configuration  with GitOps(push) Approach
+
+### Prepare Helm Chart Values Override with Terraform
+
+Parameterise the [chart values](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/helm/aws-load-balancer-controller/values.yaml) overrides by creating a terraform template file for the Ingress Helm chart values.
 
 ```yaml
-Step1: 
-create a terraform template to parametarise the Ingress Helm chart values for improved code structure and future updates
-
 clusterName: ${cluster_name}
 region: ${region}
 vpcId: ${vpc_id}
@@ -56,10 +71,14 @@ resources:
 podLabels:
   app.kubernetes.io/instance: aws-load-balancer-controller
   app.kubernetes.io/name: aws-load-balancer-controller
+```
 
 
-Step2: 
-Create a helm release resource with terraform helm release provider and pass the helm values loaded
+### Create Helm Release with Terraform
+
+Create a helm release from the [ALB helm chart](https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/helm/aws-load-balancer-controller#tldr) with terraform [helm provider](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) and pass the values override above.
+
+```hcl
 resource "helm_release" "alb_ingress_controller" {
   name       = "aws-load-balancer-controller"
   chart      = "aws-load-balancer-controller"
@@ -71,31 +90,35 @@ resource "helm_release" "alb_ingress_controller" {
   # configuration settings
   values = [local.alb_config]
 }
-
-Official docs for more supports:
-Terraform helm provider: https://registry.terraform.io/providers/hashicorp/helm/latest/docs
-ALB Ingress Controller Helm chart: https://artifacthub.io/packages/helm/aws/aws-load-balancer-controller
-
 ```
 
-Stage2: Ingress Annotations and Apply to the cluster
+### Deploy an Example ALB Ingress Class
 
-Create the ingress file and apply it to the cluster
+Once the controller is deployed, Create a example ALB Ingress Class for a test service.
 
-```
+Note: ALB Ingress Controller heavily rely on [annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/guide/ingress/annotations/) to do configuration overrides.
+
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: experiment-alb
   namespace: default
   annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/load-balancer-name: experiment-alb
     alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: ${alb_ssl_certificate_arn}
+    alb.ingress.kubernetes.io/group.name: platform.services
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/security-groups: sg-1
-    alb.ingress.kubernetes.io/subnets: subnet-1, subnet-2, subnet-3
-    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/security-groups: ${alb_sg_id}
+    alb.ingress.kubernetes.io/subnets: ${subnet1}, ${subnet2}, ${subnet3}
+    alb.ingress.kubernetes.io/load-balancer-attributes: routing.http.drop_invalid_header-fields.enabled=true,idle_timeout.timeout_seconds=600
+    alb.ingress.kubernetes.io/healthcheck-path: /metrics
+    alb.ingress.kubernetes.io/success-codes: 200,404,301,302,307  #200-299 
+    alb.ingress.kubernetes.io/target-node-labels: k8s.harphies.com/role=platform
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-FS-1-2-Res-2020-10
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
   labels:
     app: experiment-alb
 spec:
@@ -112,15 +135,14 @@ spec:
               number: 80
 ```
 
-Stage 3: OIDC Service Account and IAM Policy Permissions for the Ingress Controller
+### Create Controller Instance Profile
 
-Downlaod the IAM Policy from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
+The ALB Controller Pod needs an Instance profile whcih is configured via [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
 
-Get the iam assume role module here: https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc
 
-```
-Prerequisite:
+Downlaod the [IAM Policy](https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json) and use the [iam role for oidc module](https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc) to complete the setup
 
+```hcl
 data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_id
   depends_on = [
@@ -132,19 +154,15 @@ locals {
   oidc_provider_url       = data.aws_eks_cluster.cluster.identity.0.oidc.0.issuer
 }
 
-Step1: 
 data "tls_certificate" "core_eks" {
   url = local.oidc_provider_url
 }
 
-Step2:
 resource "aws_iam_openid_connect_provider" "example" {
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = [data.tls_certificate.core_eks.certificates[0].sha1_fingerprint]
   url             = local.oidc_provider_url
 }
-
-Step3: Create the IAM Policy
 
 resource "aws_iam_policy" "alb_ingress_controller" {
   name        = "aws-alb-ingress-iam-policy"
@@ -152,7 +170,6 @@ resource "aws_iam_policy" "alb_ingress_controller" {
   policy      = file("alb-ingress-iam-policy.json")
 }
 
-Step4: Create Service Account and Annotate the Service Account with the IAM Assume Role
 resource "kubernetes_service_account" "ALB_controller" {
   metadata {
     name      = "aws-load-balancer-controller"
@@ -164,7 +181,6 @@ resource "kubernetes_service_account" "ALB_controller" {
   depends_on = [module.alb_iam_role]
 }
 
-Step 5: Assume Role for the service account created above
 module "alb_iam_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version = "~> 4.0"
@@ -181,81 +197,20 @@ module "alb_iam_role" {
     "sts.amazonaws.com"
   ]
 }
-Note: The serviceAccount you created here and assume role for is what you pass to the helm chart value which give the Ingress controller tje neccesarry permissions to create ALB target groups, targets, listener rules in your AWS Account
 ```
 
+### Optional External DNS Configuration
 
+We optionally can configure an [external DNS](https://github.com/kubernetes-sigs/external-dns) for a domain hosted in AWS Route53 hosted zone to use for the created ALB Ingresss to expose the service over a CNAME record in the route53 hosted zone of choice.
 
-Stage 4: External DNS Configurations
-Here: We configure an external DNS for a domain hosted in AWS Route53 hosted zone to use for the created ALB Instance and other services hosted on the cluster
+Note: External DNS configuration also rely heavily on [annotations](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/service/annotations/) on both the service to expose and the Ingress Object to use for service path-based routing.
 
-Downlaod the YAML Deployment Specification from here: https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.0.0/docs/examples/external-dns.yaml
+## Issues and Considerations
 
-official docs: official doc: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
+ALB Ingress Controller creates an Instance of Application Load Balancer for every Ingress Object deployed, This is expensive as if you have multipe services says thousands of services it'll create thousands of ALB.|
 
-Deploy it to the cluster
+Good news, there's an [annotation](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/guide/ingress/annotations/#group.name) you can configure to batch multiple target groups under the same Application Load balancer and use the same ALB for multiple services. e.g
 
-Note: You also need to `assume role` for the external-dns serviceaccount in your namespace you created it in like you did for the `aws-load-balancer-controller` serviceaccount above for it to work, otherwise, there would be some issues
+```yaml
+alb.ingress.kubernetes.io/group.name: platform.services
 ```
-Step1: 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: external-dns
-spec:
-  selector:
-    matchLabels:
-      app: external-dns
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      labels:
-        app: external-dns
-    spec:
-      serviceAccountName: external-dns
-      containers:
-        - name: external-dns
-          image: bitnami/external-dns:0.7.1
-          args:
-            - --source=service
-            - --source=ingress
-            - --domain-filter={replace with your dns name}
-            - --provider=aws
-            - --policy=upsert-only
-            - --aws-zone-type=public
-            - --registry=txt
-            - --txt-owner-id={replace with your Route53 Hosted Zone}
-          resources:
-            limits:
-              memory: 128Mi
-              cpu: 100m
-            requests:
-              memory: 128Mi
-              cpu: 100m
-      securityContext:
-        fsGroup: 65534
-```
-
-Stage6: Annotate each of the services to route traffic to by the Ingress Object
-
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: {your_name}
-  labels:
-  annotations:
-    alb.ingress.kubernetes.io/target-type: ip
-    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-    external-dns.alpha.kubernetes.io/hostname: {custom_name_for_service}.{dns_name}
-spec:
-  type: LoadBalancer #Loadbalancer service type from v2.3 of the controller
-  selector:
-    {add_your_app}
-  ports:
-    - port: 80
-      targetPort: 5000
-      protocol: TCP
-```
-official docs for service annotation options: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/service/annotations/
