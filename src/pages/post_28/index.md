@@ -119,6 +119,7 @@ metadata:
     alb.ingress.kubernetes.io/target-node-labels: k8s.harphies.com/role=platform
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-FS-1-2-Res-2020-10
     alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/inbound-cidrs: "<comma separated cidr list that can acces the ingress.>"
   labels:
     app: experiment-alb
 spec:
@@ -137,7 +138,7 @@ spec:
 
 ### Create Controller Instance Profile
 
-The ALB Controller Pod needs an Instance profile whcih is configured via [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
+The ALB Controller Pod needs an Instance profile which is configured via [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
 
 
 Downlaod the [IAM Policy](https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json) and use the [iam role for oidc module](https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/latest/submodules/iam-assumable-role-with-oidc) to complete the setup
@@ -204,6 +205,44 @@ module "alb_iam_role" {
 We optionally can configure an [external DNS](https://github.com/kubernetes-sigs/external-dns) for a domain hosted in AWS Route53 hosted zone to use for the created ALB Ingresss to expose the service over a CNAME record in the route53 hosted zone of choice.
 
 Note: External DNS configuration also rely heavily on [annotations](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/service/annotations/) on both the service to expose and the Ingress Object to use for service path-based routing.
+
+## Example Usage
+
+An example usage to do path-based service routing with custom AWS Roure53 Record to access the service on configured via external dns deployment that filter my custom route53 zone.
+
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: platform-observ
+  name: jaeger-query-ing
+  annotations:
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: ${alb_ssl_certificate_arn}
+    alb.ingress.kubernetes.io/group.name: platform.services
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/security-groups: ${alb_sg_id}
+    alb.ingress.kubernetes.io/subnets: ${subnet1}, ${subnet2}, ${subnet3}
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600
+    alb.ingress.kubernetes.io/success-codes: 200,404,301,302,307  #200-299 
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+spec:
+  ingressClassName: alb
+  rules:
+    - host: ${cluster_name}-jaegerquery.${root_domain}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix #Avoid using exact
+            backend:
+              service:
+                name: jaeger-query
+                port:
+                  number: 80
+```
 
 ## Issues and Considerations
 
