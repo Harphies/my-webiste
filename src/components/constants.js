@@ -151,31 +151,13 @@ export const ABOUTME = {
   ],
 }
 
-export const technicalSkills1 = [
-  ["Tensorflow", "65%"],
-  ["pytorch", "75%"],
-  ["Keras", "80%"],
-  ["Sklearn", "80%"],
-  ["IoT", "80%"],
-  ["MultiLayer Perceptrons", "85%"],
-  ["Convolutional Neural Networks", "85%"],
-  ["Recurrent Neural Networks", "85%"],
-  ["Machine Learning", "80%"],
-  ["Natural language Processing", "50%"],
-  ["Computer Vision", "60%"],
-  ["Recommendation Systems", "70%"],
-  ["Speech Recognition", "50%"],
-  ["Autoencoder", "75%"],
-]
-
-export const technicalSkills2 = [
-  ["Python", "85%"],
-  ["Javascript", "75%"],
-  ["C/C++", "70%"],
-  ["NodeJS", "80%"],
-  ["ReactJS", "70%"],
-  ["Django", "65%"],
-  ["Java", "55%"],
+export const consultationSvc = [
+  ["Cloud Networking Optimizations", "65%"],
+  ["Cloud Compute Optimiations", "75%"],
+  ["Cloud Security and Governnce", "80%"],
+  ["AWS Cloud End-to-End Workflow Suggestions", "80%"],
+  ["Google Cloud End-to-End Workflow Suggestions", "80%"],
+  ["Multi-Cloud Networking and Inter-Operation", "85%"],
 ]
 
 export const introduction = {
