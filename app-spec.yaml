@@ -3,15 +3,11 @@ my-website:
   phases:
     preBuild:
       commands:
-        - nvm install v15
-        - yum install -y nasm 
-        - yarn install 
+        - nvm install 24
+        - npm ci
     build:
       commands:
-        - yarn run build
-    postBuild:
-      commands:
-        - yarn run deploy
+        - npm run build
   artifacts:
     baseDirectory: public
     files:

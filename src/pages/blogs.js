@@ -6,14 +6,18 @@ import FadeIn from "../components/FadeIn"
 import { FaLink } from "react-icons/fa"
 import { MdExpandMore } from "react-icons/md"
 import SEO from "../components/seo"
+import profile from "../data/profile.json"
 
 class Blogs extends React.Component {
   constructor(props) {
     super(props)
     this.themer = this.themer.bind(this)
     this.getPrevTheme = this.getPrevTheme.bind(this)
+    const firstPost = props.data.allMarkdownRemark.edges[0]?.node
     this.state = {
       theme: null,
+      post: firstPost?.frontmatter,
+      selectedId: firstPost?.id || "",
     }
   }
 
@@ -57,11 +61,11 @@ class Blogs extends React.Component {
     const { selectedId = "", post } = this.state
     return (
       <Layout className="mh100" theme={this.state.theme} themer={this.themer}>
-        <SEO title="harphies Journal | harphies blogs" />
+        <SEO title={`Engineering journal | ${profile.name}`} description="Field notes on LLM inference, HPC, GPU platforms and cloud engineering." ogUrl="https://harphies.tech/blogs/" />
         <div>
           <div className="textcenter showBlogHead600">
-            <div> A Series of</div>
-            <div> Startling Reads</div>
+            <div> Engineering</div>
+            <div> Journal</div>
           </div>
           <div className="mh90vh blog marginT15">
             <div className="inbl mh90vh" />
@@ -129,23 +133,21 @@ class Blogs extends React.Component {
                   <div className="width100 textcenter fs35 hide650px padT10">
                     <div className="oh">
                       <FadeIn className="marginT10 padding10">
-                        A Series of{" "}
+                        Notes from{" "}
                       </FadeIn>
                     </div>
                     <div className="padT10 oh marginB50">
                       <FadeIn className="textcenter fs35  padding10">
-                        Accidental blogs
+                        Engineering Practice
                       </FadeIn>
                     </div>
                   </div>
                   <div className="mh40scroll">
                     {data.allMarkdownRemark.edges.map((post, index) => {
                       const { id, frontmatter } = post.node
-                      if (index === 0 && !this.state.post) {
-                        this.setState({ post: frontmatter, selectedId: id })
-                      }
                       return (
                         <div
+                          key={id}
                           className={
                             "descriptionTxtColor padB10 hand textright padR20p  " +
                             (selectedId === id ? " selPostHeader" : "")
@@ -181,7 +183,7 @@ export default Blogs
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id

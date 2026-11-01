@@ -12,9 +12,9 @@ import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({
   description,
-  lang,
-  meta,
-  keywords,
+  lang = "en",
+  meta = [],
+  keywords = [],
   title,
   ogUrl,
   ogType,
@@ -43,15 +43,15 @@ function SEO({
   const metaTitle = title || site.siteMetadata.title
   const metaType = ogType || site.siteMetadata.ogType
   const metaUrl = ogUrl || site.siteMetadata.ogUrl
-  const metaImage = image || site.siteMetadata.image
-  const metaLang = site.siteMetadata.lang || "en"
-  console.log("image", image, metaImage)
+  const metaImage = new URL(image || site.siteMetadata.image, site.siteMetadata.ogUrl).href
+  const metaLang = lang || site.siteMetadata.lang || "en"
   return (
     <Helmet
       htmlAttributes={{
         lang: metaLang,
       }}
       title={metaTitle}
+      link={[{ rel: "canonical", href: metaUrl }]}
       meta={[
         { name: `description`, content: metaDescription },
         { property: `og:title`, content: metaTitle },
@@ -62,7 +62,6 @@ function SEO({
         { property: `twitter:title`, content: metaTitle },
         { property: "twitter:description", content: metaDescription },
         { name: "robots", content: "index, follow" },
-        { rel: "canonical", href: "https://harphies.tech/" },
       ]
         .concat(
           keywords.length > 0
@@ -75,12 +74,6 @@ function SEO({
         .concat(meta)}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
 }
 
 SEO.propTypes = {
