@@ -6,7 +6,8 @@ import ContactMe from "../components/ContactMe"
 import Layout from "../components/Layout-Page"
 import FadeIn from "../components/FadeIn"
 import SEO from "../components/seo"
-import GoogleMe from "../components/GoogleMe"
+import { Link } from "gatsby"
+import profile from "../data/profile.json"
 
 class BlogPageHome extends React.Component {
   constructor(props) {
@@ -72,14 +73,16 @@ class BlogPageHome extends React.Component {
                 className="fs40 inbl "
                 style={{ animationDelay: "0.05s", lineHeight: "1.7em" }}
               >
-                <h1 className="fs40 myname">Harphies</h1>
+                <h1 className="fs40 myname">{profile.name}</h1>
               </FadeIn>
             </div>
           </div>
           <div className="mt35">
             <Avatar />
             <ContactMe theme={this.state.theme} />
-            <GoogleMe />
+            <div className="textcenter pad20 lh2em">
+              <Link to="/blogs/llm-serving-topologies-and-why-they-matter">Read my latest work: LLM serving topologies</Link>
+            </div>
           </div>
         </div>
       </Layout>

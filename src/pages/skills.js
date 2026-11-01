@@ -4,6 +4,7 @@ import Layout from "../components/Layout-Page"
 import FadeIn from "../components/FadeIn"
 import { technicalSkills1, technicalSkills2 } from "../components/constants"
 import SEO from "../components/seo"
+import profile from "../data/profile.json"
 
 class Skills extends React.Component {
   constructor(props) {
@@ -19,9 +20,6 @@ class Skills extends React.Component {
   componentDidMount() {
     const theme = this.getPrevTheme()
     this.setState({ theme })
-    setTimeout(() => {
-      this.setState({ loadWidth: true })
-    }, 500)
   }
 
   getPrevTheme() {
@@ -41,38 +39,22 @@ class Skills extends React.Component {
   }
 
   renderHalf(second) {
-    const { loadWidth } = this.state
-    const toMap = second ? technicalSkills2 : technicalSkills1
-    return (
-      <div>
-        {toMap.map(skill => {
-          return (
-            <div className="pad5 " key={skill[0]}>
-              <div className="dflex flexspacebetween">
-                <div>{skill[0]}</div>
-                <div>{skill[1]}</div>
-              </div>
-              <div className="paddingTB10">
-                <div className="whiteborder  posRel marginTB5" />
-                <div
-                  className=" posRel blueborder zeroWidthAnimation"
-                  style={{ bottom: "2px", width: !loadWidth ? "0" : skill[1] }}
-                />
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    )
+    const skills = second ? technicalSkills2 : technicalSkills1
+    return <div>{skills.map(([title, detail]) => (
+      <section className="pad20 lh2em" key={title}>
+        <h2 className="ico20">{title}</h2>
+        <p className="descriptionTxtColor">{detail}</p>
+      </section>
+    ))}</div>
   }
   render() {
     return (
       <Layout className="mh100" theme={this.state.theme} themer={this.themer}>
-        <SEO title="harphies Journal | harphies skills" />
+        <SEO title={`Expertise | ${profile.name}`} description="LLM inference, GPU infrastructure, Kubernetes, RDMA, performance evaluation and GitOps." ogUrl="https://harphies.tech/skills/" />
         <div>
           <div className="mh90vh">
             <div className="width100 textcenter oh">
-              <FadeIn className=" fs35 fadeInWord ">Technical Skills</FadeIn>
+              <FadeIn className=" fs35 fadeInWord ">Areas of Focus</FadeIn>
             </div>
             <div className="skillCard marginT50">
               <div className="widthhalf">{this.renderHalf()}</div>

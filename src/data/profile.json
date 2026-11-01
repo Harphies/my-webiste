@@ -1,0 +1,34 @@
+{
+  "name": "Taofeek Olalekan",
+  "headline": "Senior HPC & AI Infrastructure Engineer",
+  "summary": "I work on AI/ML infrastructure at Thoughtworks, contributing to sovereign AI cloud platforms at 10,000+ GPU scale. My focus is distributed inference, GPU systems and reliable production operations.",
+  "location": "London, United Kingdom",
+  "linkedin": "https://www.linkedin.com/in/olalekan-taofeek/",
+  "description": "Taofeek Olalekan — Senior HPC & AI Infrastructure Engineer. Disaggregated LLM inference, GPU systems, Linux, networking and sovereign AI cloud platforms.",
+  "focus": [
+    "LLM serving with NVIDIA Dynamo and SGLang: topology, KV capacity, scheduling and long-context workloads.",
+    "GPU infrastructure on Kubernetes: allocation, GPU/NIC affinity, NUMA placement and RDMA verification.",
+    "Network topology and communication: leaf–spine fabrics, collective efficiency and the interaction between GPU compute and storage.",
+    "Performance and evaluation: concurrency sweeps, TTFT, inter-token latency, throughput per GPU and agent benchmarks.",
+    "GitOps operations: reproducible deployments, observability, verification and recovery."
+  ],
+  "specialism": "Disaggregated LLM Inference | GPU Platforms",
+  "company": "Thoughtworks",
+  "approach": "I work across the stack, from Linux and network topology to Kubernetes and inference runtimes. When configuration alone cannot explain a problem, I follow it into the source code.",
+  "background": "My background spans electronics, embedded systems, applied machine learning and cloud platforms. That progression shapes how I approach AI infrastructure: hardware, networking and software have to work together.",
+  "community": "I also write and mentor. My community work has included AI Commons, the Facebook/Andela Build for SDG programme and teaching AI with Tech4her.",
+  "publicWriting": [
+    {
+      "title": "Why I joined Thoughtworks for AI/ML infrastructure",
+      "url": "https://www.linkedin.com/posts/olalekan-taofeek_artificialintelligence-deeplearning-machinelearning-activity-7364956265459945473-QJvB"
+    },
+    {
+      "title": "Leaf–spine networks for AI and HPC",
+      "url": "https://www.linkedin.com/posts/olalekan-taofeek_leaf-spine-network-topology-is-one-of-the-activity-7449044428473856000-PNWt"
+    },
+    {
+      "title": "Linux internals and systems programming",
+      "url": "https://www.linkedin.com/posts/olalekan-taofeek_cloudengineering-cloudcomputing-cloudnative-activity-7171198308609052673-N-cp"
+    }
+  ]
+}

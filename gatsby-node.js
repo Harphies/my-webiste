@@ -15,7 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
               author
               ogimage {
                 childImageSharp {
-                  fixed {
+                  resize(width: 1200) {
                     src
                   }
                 }
@@ -34,6 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: node.frontmatter.path,
         component: postTemplate,
+        context: { slug: node.frontmatter.path },
       })
     })
   })

@@ -783,3 +783,11 @@ body.dark .gatsby-highlight {
 .scaleOnHover.google:hover {
   color: var(--themeColor)
 }
+/* Keep benchmark tables and full-resolution plots readable on small screens. */
+.blogText table { display: block; overflow-x: auto; }
+.blogText th, .blogText td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid #8884; }
+.blogText img { height: auto; }
+
+.profileSummary { max-width: 680px; margin: 1rem auto; }
+.profileBio { max-width: 760px; margin: 1rem auto; }
+.profileBio li { margin-bottom: 0.75rem; }

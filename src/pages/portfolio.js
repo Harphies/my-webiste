@@ -6,6 +6,7 @@ import { portfolioDetails } from "../components/constants"
 import FadeIn from "../components/FadeIn"
 import { FaExternalLinkAlt } from "react-icons/fa"
 import SEO from "../components/seo"
+import profile from "../data/profile.json"
 
 class BlogPageHome extends React.Component {
   constructor(props) {
@@ -45,16 +46,16 @@ class BlogPageHome extends React.Component {
   render() {
     return (
       <Layout theme={this.state.theme} themer={this.themer}>
-        <SEO title="harphies Journal | harphies portfolio" />
+        <SEO title={`Selected work | ${profile.name}`} description="AI infrastructure, long-context LLM serving, performance evaluation and earlier engineering projects." ogUrl="https://harphies.tech/portfolio/" />
         <div className="">
           <div className=" width100 textcenter oh">
             <FadeIn className="fs35 padT20 inline lh2em">
-              Journey of the{" "}
+              Engineering{" "}
             </FadeIn>
           </div>
           <div className="mB25  width100 textcenter oh">
             <FadeIn className="fs35 inline " style={{ animationDelay: "0.5s" }}>
-              {"Innovator"}
+              {"in practice"}
             </FadeIn>
           </div>
         </div>
@@ -67,13 +68,13 @@ class BlogPageHome extends React.Component {
         )}
         {this.state.show && (
           <div className="mw960 pad10">
-            <div className="themeColorBackground pad10" ref="content">
+            <div className="themeColorBackground pad10">
               <div
                 className="op0 opAnimator"
                 style={{ animationDelay: "0.3s" }}
               >
                 {Object.keys(portfolioDetails).map(projectType => (
-                  <div>
+                  <div key={projectType}>
                     <div className="white ico25 pad10 fb marginTB10 lh2em">
                       {projectType +
                         (portfolioDetails[projectType].date
@@ -82,7 +83,7 @@ class BlogPageHome extends React.Component {
                     </div>
                     <div className="projectContainer">
                       {portfolioDetails[projectType].details.map(project => (
-                        <div className="projectCard">
+                        <div className="projectCard" key={project[0]}>
                           <div className="headingTxtColor textcenter fb padB10">
                             <span>{project[0]}</span>
                             {project[1] && (
@@ -127,7 +128,7 @@ export default BlogPageHome
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id

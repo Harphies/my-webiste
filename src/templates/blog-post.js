@@ -45,16 +45,16 @@ export default class Template extends React.Component {
     const { theme } = this.state
     const { title, description, path, ogimage, date } = post.frontmatter
     const ogimagePath =
-      ogimage && ogimage.childImageSharp && ogimage.childImageSharp.fixed
-        ? ogimage.childImageSharp.fixed.src
+      ogimage && ogimage.childImageSharp && ogimage.childImageSharp.resize
+        ? ogimage.childImageSharp.resize.src
         : ""
     return (
       <Layout theme={theme} themer={this.themer}>
         <SEO
-          title={title + " - harphies"}
-          description={description + " by harphies"}
-          ogType="blogs"
-          ogUrl={"https://harphies.tech/" + path}
+          title={title + " | " + post.frontmatter.author}
+          description={description}
+          ogType="article"
+          ogUrl={new URL(path, "https://harphies.tech").href}
           image={ogimagePath}
         />
         <div className="blogText lh2em lr05">
@@ -78,8 +78,8 @@ export default class Template extends React.Component {
 }
 
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query BlogPostByPath($slug: String!) {
+    markdownRemark(frontmatter: { path: { eq: $slug } }) {
       html
       frontmatter {
         path
@@ -89,7 +89,7 @@ export const postQuery = graphql`
         date(formatString: "MMM DD, YYYY")
         ogimage {
           childImageSharp {
-            fixed {
+            resize(width: 1200) {
               src
             }
           }
@@ -98,7 +98,7 @@ export const postQuery = graphql`
     }
     allMarkdownRemark(
       limit: 3
-      filter: { frontmatter: { path: { ne: $path } } }
+      filter: { frontmatter: { path: { ne: $slug } } }
     ) {
       edges {
         node {

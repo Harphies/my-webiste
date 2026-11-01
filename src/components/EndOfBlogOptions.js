@@ -2,6 +2,7 @@ import React from "react"
 import { FaShare, FaTwitter } from "react-icons/fa"
 import { IoLogoWhatsapp } from "react-icons/io"
 import profilePic from "../assets/profilePic.jpeg"
+import profile from "../data/profile.json"
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/olalekan-taofeek/"
 // const GI_LINKEDIN_URL = 'https://www.linkedin.com/company/goibibo/';
@@ -44,7 +45,7 @@ const Avatar = props => {
               "&url=" +
               URL +
               props.data.path +
-              "&hashtags=javacript"
+              "&hashtags=LLM,AIInfrastructure"
             }
           >
             <FaTwitter className="marginLR20 hand themeColor" />
@@ -54,7 +55,7 @@ const Avatar = props => {
       <div className="posRel h120p textcenter">
         <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
           <img
-            alt="profileImg"
+            alt={profile.name}
             className="footerAvatar marginL15"
             style={{ margin: "inherit" }}
             width="75"
@@ -73,7 +74,7 @@ const Avatar = props => {
             target="_blank"
             className="themeColor"
           >
-            Harphies
+            {profile.name}
           </a>
         </div>
       </div>

@@ -1,33 +1,32 @@
 {
   "name": "my-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Taofeek Olalekan \u2014 HPC and AI infrastructure, disaggregated LLM inference, GPU platforms and sovereign AI cloud engineering.",
   "version": "0.1.0",
-  "author": "olalekan taofeek",
+  "author": "Taofeek Olalekan",
   "dependencies": {
-    "gatsby": "^2.13.67",
-    "gatsby-image": "^2.0.34",
-    "gatsby-plugin-manifest": "^2.0.25",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.10",
-    "gatsby-plugin-sharp": "^2.2.12",
-    "gatsby-remark-copy-images": "^0.2.1",
+    "gatsby": "5.16.1",
+    "gatsby-plugin-image": "3.16.0",
+    "gatsby-plugin-manifest": "5.16.0",
+    "gatsby-plugin-react-helmet": "6.16.0",
+    "gatsby-plugin-sharp": "5.16.0",
     "gatsby-remark-external-links": "0.0.4",
-    "gatsby-remark-images": "^3.0.10",
-    "gatsby-remark-prismjs": "^3.2.6",
-    "gatsby-source-filesystem": "^2.0.27",
-    "gatsby-transformer-remark": "^2.3.8",
-    "gatsby-transformer-sharp": "^2.1.17",
-    "gh-pages": "2.2.0",
-    "prismjs": "^1.15.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-helmet": "^5.2.0",
-    "react-icons": "^3.5.0"
+    "gatsby-remark-images": "7.16.0",
+    "gatsby-remark-prismjs": "7.16.0",
+    "gatsby-source-filesystem": "5.16.0",
+    "gatsby-transformer-remark": "6.16.0",
+    "gatsby-transformer-sharp": "5.16.0",
+    "gh-pages": "6.3.0",
+    "prismjs": "1.30.0",
+    "prop-types": "15.8.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-helmet": "6.1.0",
+    "react-icons": "5.7.0"
   },
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "ajv": "8.20.0",
+    "prettier": "3.9.10"
   },
   "keywords": [
     "gatsby"
@@ -37,16 +36,13 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write \"src/**/*.{js,jsx,md,css}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "npm run build",
+    "clean": "gatsby clean"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "engines": {
+    "node": ">=24 <25"
   }
 }

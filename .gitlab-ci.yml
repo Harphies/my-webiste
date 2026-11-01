@@ -18,3 +18,15 @@ stages:
         - .gitlab/.gitlab-ci-deploy-web-page.yml
         - .gitlab-ci.yml
     - when: never
+Website build:
+  stage: build
+  image: node:24-bookworm
+  variables:
+    GATSBY_TELEMETRY_DISABLED: "1"
+  script:
+    - npm ci --no-audit --no-fund
+    - npm run build
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days

@@ -13,6 +13,7 @@ class CursorImitator extends React.Component {
 
   constructor(props) {
     super(props);
+    this.lineRefs = {};
     this.loadIntro = this.loadIntro.bind(this);
     this.loadCursorBlink = this.loadCursorBlink.bind(this);
     this.clearAllTimeoutsAndIntervals = this.clearAllTimeoutsAndIntervals.bind(this);
@@ -89,7 +90,7 @@ class CursorImitator extends React.Component {
       let currIndex = index;
       /* To create a Blink at the start of every Sentence */
       if (index === 0) {
-        this.loadCursorBlink(self.refs[reference], this.ttw);
+        this.loadCursorBlink(self.lineRefs[reference], this.ttw);
         this.ttw = this.ttw + (waitAtStart / nextLetterTime);
         ttw = this.ttw;
       }
@@ -97,18 +98,18 @@ class CursorImitator extends React.Component {
         if (self.interval) {
           clearInterval(self.interval);       // Clear any previous Intervals and removing blink
         }
-        if (currIndex === 0 && self.refs && self.refs[reference]) { // Adding '|' in the beginning of every sentence and  inserting incoming texts before that
-          self.refs[reference].innerText = '|';
+        if (currIndex === 0 && self.lineRefs && self.lineRefs[reference]) { // Adding '|' in the beginning of every sentence and  inserting incoming texts before that
+          self.lineRefs[reference].innerText = '|';
         }
-        if (nextLetter === ' ' && self.refs && self.refs[reference]) {  // Handling space
-          return self.refs[reference].innerHTML = self.refs[reference].innerHTML.substring(0, self.refs[reference].innerHTML.length - 1) + ' |';
-        } else if (self.refs && self.refs[reference]) {                 // adding next digit
-          return self.refs[reference].innerText = self.refs[reference].innerText.substring(0,self.refs[reference].innerText.length - 1) + nextLetter + '|';
+        if (nextLetter === ' ' && self.lineRefs && self.lineRefs[reference]) {  // Handling space
+          return self.lineRefs[reference].innerHTML = self.lineRefs[reference].innerHTML.substring(0, self.lineRefs[reference].innerHTML.length - 1) + ' |';
+        } else if (self.lineRefs && self.lineRefs[reference]) {                 // adding next digit
+          return self.lineRefs[reference].innerText = self.lineRefs[reference].innerText.substring(0,self.lineRefs[reference].innerText.length - 1) + nextLetter + '|';
         }
       }, ttw * nextLetterTime);  // incremented value for every sentence
       if (index === sentenceLength - 1) {   // To clear it all at once if required
         /* To create a Blink at the End of every Sentence */
-        this.loadCursorBlink(this.refs[reference], this.ttw, true, isLastSentence);
+        this.loadCursorBlink(this.lineRefs[reference], this.ttw, true, isLastSentence);
         this.ttw = this.ttw + (waitAtEnd / nextLetterTime);
       }
     })
@@ -123,7 +124,7 @@ class CursorImitator extends React.Component {
             const refName = 'line_' + index;
             const isLast = contentLast === index;
             return (
-              <div ref={refName} className={this.props.letterWrapClass}>
+              <div key={refName} ref={node => { this.lineRefs[refName] = node; }} className={this.props.letterWrapClass}>
                 {this.state.mounted && this.loadLetter(sentence, refName, isLast)}
               </div>
             )

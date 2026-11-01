@@ -1,4 +1,19 @@
 export const portfolioDetails = {
+  "AI infrastructure & LLM inference": {
+    date: "Current focus",
+    details: [
+      ["Long-context serving", "/blogs/llm-serving-topologies-and-why-they-matter", "GLM-5.3 PD deployment: TP4 prefill, TP8 decode and validated inputs above 500k tokens.", ""],
+      ["Performance & evaluation", "/blogs/llm-serving-topologies-and-why-they-matter", "Cold concurrency sweeps, aggregated versus disaggregated serving, WEKA replay and Terminal-Bench.", ""],
+      ["GPU platforms", "", "Kubernetes GPU allocation, NUMA and PCIe affinity, InfiniBand/RDMA verification, GitOps and observability.", ""],
+    ],
+  },
+  "Systems & platform engineering": {
+    date: "Engineering background",
+    details: [
+      ["Linux & systems programming", "https://www.linkedin.com/posts/olalekan-taofeek_cloudengineering-cloudcomputing-cloudnative-activity-7171198308609052673-N-cp", "Investigating behaviour below orchestration: Linux internals, hardware architecture and networking, using Go and Rust.", ""],
+      ["Platform extensions", "https://www.linkedin.com/posts/olalekan-taofeek_cloudengineering-devops-cloucomputing-activity-7288202170376577025-ydh6", "Experience extending Terraform providers and building custom Kubernetes operators for internal requirements.", ""],
+    ],
+  },
   "Open Source": {
     date: "",
     details: [
@@ -35,7 +50,7 @@ export const portfolioDetails = {
     ],
   },
   TREPLABS: {
-    date: "2018 Feb - Present",
+    date: "Earlier work; started February 2018",
     details: [
       [
         "Circuit design and architecture",
@@ -112,85 +127,16 @@ export const portfolioDetails = {
   },
 }
 
-export const ABOUTME = {
-  Experiences: [
-    {
-      name: "TREPLABS",
-      role: "Technical Lead",
-      period: "Feb 2018 - Present",
-    },
-    {
-      name: "Mobil Oil Nigeria",
-      role: "Internship",
-      period: "Dec 2017 - May 2018",
-    },
-    {
-      name: "Quintas",
-      role: "Instrumentation Engineer| Innovator",
-      period: "Jul 2016 - Dec 2017",
-    },
-    {
-      name: "Skytech",
-      role: "Embedded Engineer",
-      period: "Jan 2016 - Jun 2016",
-    },
-  ],
-  Education: [
-    {
-      name: "Federal University of Technology Akure",
-      branch: "B.Tech. Physics Electronics",
-      period: "",
-      project: "A smart IoT device for efficient Energy control",
-    },
-    {
-      name: "Wesley College of Science Elekuro",
-      branch: "science",
-      period: "",
-      project: "Science & Technology",
-    },
-  ],
-}
-
 export const technicalSkills1 = [
-  ["Tensorflow", "65%"],
-  ["pytorch", "75%"],
-  ["Keras", "80%"],
-  ["Sklearn", "80%"],
-  ["IoT", "80%"],
-  ["MultiLayer Perceptrons", "85%"],
-  ["Convolutional Neural Networks", "85%"],
-  ["Recurrent Neural Networks", "85%"],
-  ["Machine Learning", "80%"],
-  ["Natural language Processing", "50%"],
-  ["Computer Vision", "60%"],
-  ["Recommendation Systems", "70%"],
-  ["Speech Recognition", "50%"],
-  ["Autoencoder", "75%"],
+  ["LLM serving", "NVIDIA Dynamo, SGLang, aggregated and disaggregated inference"],
+  ["Parallelism & memory", "Tensor/data parallelism, KV cache, request admission and long context"],
+  ["GPU interconnects", "RDMA, InfiniBand, leaf–spine networks, collective communication, PCIe and NUMA placement"],
+  ["Performance & evaluation", "Concurrency sweeps, TTFT, ITL, throughput and agent benchmarks"],
 ]
 
 export const technicalSkills2 = [
-  ["Python", "85%"],
-  ["Javascript", "75%"],
-  ["C/C++", "70%"],
-  ["NodeJS", "80%"],
-  ["ReactJS", "70%"],
-  ["Django", "65%"],
-  ["Java", "55%"],
+  ["Kubernetes platforms", "GPU scheduling, Dynamic Resource Allocation and workload placement"],
+  ["GitOps & delivery", "Argo CD, Helm, CI validation and reproducible deployment configuration"],
+  ["Observability", "Prometheus, Grafana, engine metrics and operational verification"],
+  ["Systems & tooling", "Go, Rust, Python, Bash and source-level investigation of platform and inference software"],
 ]
-
-export const introduction = {
-  description: [
-    "* Hello there!",
-    "* I'm Olalekan Taofeek, as you all know already ❤",
-    "* ",
-    "* I use python, Javascript, C/C++ and NodeJs to create Intelligent and smart machines.",
-    "* I also Blog about some Interesting (Technical) stuffs that I know quite well on LinkedIn",
-    "* I have few Open source projects willing to share with the community",
-    "* I love reading books mostly on human Psychology, Neuroscience,History$Biography of Great people, Innovation process and Innovation strategy.",
-    "* What other things I do you ask?",
-    "* Well...",
-    "* I love watching football.",
-    "* At times I watch sci-fi movies.",
-    "* Well that's pretty much about me!",
-  ],
-}
