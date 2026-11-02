@@ -3,7 +3,7 @@ path: "/blogs/llm-serving-topologies-and-why-they-matter"
 date: "2026-11-01"
 title: "LLM serving topologies and why they matter"
 author: "Taofeek Olalekan"
-timeToRead: "11"
+timeToRead: "13"
 smallTitle: "LLM serving: context, latency and GPU efficiency"
 description: "Measured GLM-5.3 results for one TP4 replica, two TP4 replicas and prefill–decode disaggregation: DP versus DPA, long context, throughput and p50/p95 latency."
 postNum: "38"
@@ -57,6 +57,14 @@ The working prefill settings included `mem-fraction-static: 0.93`, `max-prefill-
 I validated a **510,012-token input** and a selected **4,000-request WEKA replay with zero errors**, including inputs above 500k. The total input-plus-output cap was 524,288 tokens. The replay was a bounded subset, not the entire source corpus.
 
 The same PD deployment completed Terminal-Bench with **72/89 tasks solved (80.9%)**. That score belongs to the model, agent harness and serving configuration together. Five agent timeouts remained scored failures. It does not prove that topology tuning improved model accuracy, and it is not an AGG quality score.
+
+## Context capacity also needs a correctness check
+
+[Cloudflare’s GLM-5.3 incident report](https://blog.cloudflare.com/kv-cache-exposure-remediation/) shows why this matters beyond capacity. A prefill pool smaller than the advertised context exposed an SGLang rejection-path bug: decode consumed stale KV pages and returned another request’s data. Successful HTTP responses did not establish correctness.
+
+Our PD pools exceeded the configured cap, but that alone does not prove isolation. The measurements above used SGLang 0.5.21; Cloudflare recommends 0.5.22 or later for the incident fix and related hardening. A runtime review must check the exact image and patches, including transfer failure and deferred-release handling. Dynamo’s cancellation path needs its own verification; an SGLang router fix does not automatically cover it.
+
+My follow-up checks are boundary rejection, cancellation during transfer, and controlled cross-request markers alongside output validation. Those tests remain separate from the successful replay and throughput results reported here.
 
 ## Use a cold baseline to compare performance
 
@@ -155,6 +163,23 @@ The eight GPUs share an NVLink/NVSwitch fabric. That connectivity does not autom
 Host RAM is separate from GPU HBM too. The first lab worker had a 1 TiB host limit and 75 decimal GB of HiCache per rank. For two replicas, I used 800 GiB and 37 GB per rank: **296 GB total main host cache versus 300 GB** before. This helped fit two workers and the client on the node. The cold-cache checks matter when interpreting that host-cache difference.
 
 These measured deployments therefore differ in more than replica count. PD also uses different stage-specific memory, MRR and backend settings. Per-GPU normalization describes an efficiency metric; it does not make those configurations experimentally identical.
+
+## Placement is only the beginning of the PD path
+
+[llm-d’s GKE study](https://llm-d.ai/blog/topology-as-an-end-to-end-contract) connects device allocation, transport verification and router pairing. A matched GPU/NIC allocation does not prove which path a live KV transfer uses. Their UCX/NIXL stack can silently fall back to TCP.
+
+Our checks established GPU/NIC PCIe pairing, NUMA alignment and active InfiniBand links. They did not establish request-level transfer behaviour. Next: correlate requests with per-NIC traffic and transfer timing.
+
+<details>
+<summary>Follow-up experiments for this Dynamo PD deployment</summary>
+
+1. Pin Mooncake/verbs versions and map prefill-to-decode paths by device identity.
+2. Measure transfer bytes, duration and fabric errors under load; check for unintended paths.
+3. Check pinned Dynamo support before evaluating locality-aware pairing. Our single decoder leaves only prefill selection to balance locality, cache reuse and load.
+
+The study uses GKE RoCE and NIXL/UCX; ours uses InfiniBand and Mooncake. Its environment variables and gains are not portable defaults. Test one change at a time against the saved baseline.
+
+</details>
 
 ## What remains to test
 
