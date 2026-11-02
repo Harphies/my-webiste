@@ -34,3 +34,13 @@ Netlify builds with Node 24 and publishes `public/`, as configured in `netlify.t
 `npm run deploy` is an explicit GitHub Pages publish command; local builds do not publish. `app-spec.yaml` uses the same Node/npm build path for the existing alternative hosting configuration.
 
 Upgrade reference: [Gatsby 5.16 — React 19 and Node 24 support](https://www.gatsbyjs.com/docs/reference/release-notes/v5.16/).
+
+## Reproduce the topology figures
+
+The article compares saved GLM-5.3 AGG 1×TP4, AGG 2×TP4 and PD 3P1D results. Its public CSV contains 25 validated aggregate points; it contains no prompts, internal endpoints or GPU identifiers.
+
+```bash
+uv run --no-project --with matplotlib python scripts/plot-llm-topologies.py
+```
+
+This reads `static/data/glm53-topology-8k1k-20261102.csv` and regenerates three PNG figures beside the post plus SVG versions under `static/plots/`. It sends no inference or SSH requests. Only AGG 2×TP4 has a measured C256 point.
