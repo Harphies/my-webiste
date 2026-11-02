@@ -791,3 +791,9 @@ body.dark .gatsby-highlight {
 .profileSummary { max-width: 680px; margin: 1rem auto; }
 .profileBio { max-width: 760px; margin: 1rem auto; }
 .profileBio li { margin-bottom: 0.75rem; }
+
+/* Long checkpoint revisions should wrap without changing fenced code blocks. */
+.blogText p code, .blogText li code {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
