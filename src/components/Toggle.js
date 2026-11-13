@@ -1,28 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import moon from '../assets/moon.png';
-import sun from '../assets/sun.png';
-import {FaMoon, FaSun} from 'react-icons/fa';
+import React from "react"
+import PropTypes from "prop-types"
+import Helmet from "react-helmet"
+import { FaMoon, FaSun } from "react-icons/fa"
 
-const Toggle = ({theme, themer, move, className}) => {
-  return(
-    <div className={className}>
-      <Helmet  meta={[{ name: 'theme-color', content: (theme === 'dark' ? '#000': '#235bc1')}]}/>
-      <div >
-        <div className="">
-          {(theme !== 'dark') && <FaMoon className="hand ico25 " onClick={themer} src={sun}></FaMoon>}
-          {(theme === 'dark') && <FaSun className="hand  ico25 " onClick={themer} src={moon}></FaSun>}
-        </div>
-      </div>
-    </div>
-  );
-}
+const Toggle = ({ theme, themer, className }) => (
+  <div className={className}>
+    <Helmet
+      meta={[
+        { name: "theme-color", content: theme === "dark" ? "#000" : "#235bc1" },
+      ]}
+    />
+    <button
+      className="theme-toggle"
+      type="button"
+      onClick={themer}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+    >
+      {theme === "dark" ? (
+        <FaSun aria-hidden="true" />
+      ) : (
+        <FaMoon aria-hidden="true" />
+      )}
+    </button>
+  </div>
+)
 
 Toggle.propTypes = {
   theme: PropTypes.string,
   themer: PropTypes.func,
-  move: PropTypes.bool
-};
+  className: PropTypes.string,
+}
 
-export default Toggle;
+export default Toggle

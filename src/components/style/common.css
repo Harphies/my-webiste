@@ -797,3 +797,25 @@ body.dark .gatsby-highlight {
   overflow-wrap: anywhere;
   white-space: normal;
 }
+
+/* Shared theme control: keyboard access and a comfortable pointer target. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--headingTxtColor);
+  font-size: 25px;
+  line-height: 1;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--themeColor);
+  outline-offset: 3px;
+}
