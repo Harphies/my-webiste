@@ -3,20 +3,124 @@ path: "/blogs/llm-serving-topologies-and-why-they-matter"
 date: "2026-11-01"
 title: "LLM serving topologies and why they matter"
 author: "Taofeek Olalekan"
-timeToRead: "13"
-smallTitle: "LLM serving: context, latency and GPU efficiency"
-description: "Measured GLM-5.3 results for one TP4 replica, two TP4 replicas and prefill–decode disaggregation: DP versus DPA, long context, throughput and p50/p95 latency."
+timeToRead: "23"
+smallTitle: "LLM serving: topology, parallelism and GPU efficiency"
+description: "AGG versus prefill–decode disaggregation, then TP, DP, DPA, EP and context parallelism: choosing layouts for latency, throughput and concurrency, with measured GLM-5.3 results."
 postNum: "38"
 ogimage: "./glm53-topology-envelope.png"
 ---
 
-*Updated 2 November 2026 with the completed two-replica experiment.*
+*Updated 13 November 2026 with a topology and parallelism framework. The measurements remain the completed 2 November experiment.*
 
 Eight B200 GPUs: one TP8 instance or two TP4 replicas? And when should prefill and decode use separate workers?
 
-Those choices change context capacity, request concurrency, per-user speed and GPU efficiency. I’ve been testing them with GLM-5.3, NVIDIA Dynamo and SGLang. The results show why a peak tokens-per-second number is not enough to choose a deployment.
+These questions involve **two connected decisions**. The serving topology determines where prefill and decode execute: aggregated (AGG) or prefill–decode disaggregated (PD). The parallelism strategy determines how requests, weights, activations and KV state are distributed inside each worker group. Both decisions affect context capacity, concurrency, per-user speed and GPU efficiency.
 
-## What I actually tested
+I’ve been testing GLM-5.3 with NVIDIA Dynamo and SGLang. Before the measurements, it helps to separate those decisions and explain why the right combination changes with the model, traffic and latency requirement.
+
+## Part 1: choose the serving topology
+
+In **aggregated serving**, the same engine handles prompt processing and token generation. Continuous batching and chunked prefill can schedule these together, but they still compete for compute, memory and scheduler time. Adding independent AGG replicas increases fleet capacity; each replica owns its model instance and KV state.
+
+In **PD disaggregation**, prefill workers process the prompt and hand KV state to decode workers, which continue generation. Each pool can have its own replica count, parallelism layout and scheduling limits. This isolates the phases and allows different hardware allocations, at the cost of KV transfer, routing and coordination. [DistServe](https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin) frames the objective as goodput under both first-token and per-token latency constraints.
+
+PD does not guarantee lower TTFT. First-token delay includes queueing, prefill and the handoff needed to start decode. Faster steady-state generation can coexist with a slower first token, as the measurements below show.
+
+| Decision | What it controls | Example in this post |
+| --- | --- | --- |
+| Serving topology | Whether prefill and decode share an engine or use separate pools | AGG versus PD 3P1D |
+| Replication | How many independent engines or coordinated groups serve traffic | One versus two AGG engines |
+| Parallelism within each phase | Which GPUs own each request, tensor shard, expert or context segment | TP4/DPA4 prefill versus TP8/DPA8 decode |
+| Physical placement | Which links carry collectives and KV transfers | NVLink/NVSwitch within a node; InfiniBand between nodes |
+
+A PD label therefore leaves much unspecified. Three prefill workers and one decoder describe the worker counts; their GPU group sizes determine the hardware budget. My 3P1D deployment uses three TP4 prefills and one TP8 decoder: **3 × 4 + 8 = 20 serving GPUs**.
+
+## Part 2: choose parallelism for each phase and layer
+
+Parallelism has several axes, and an engine can use different axes for attention, dense feed-forward layers and routed experts. A label such as “3D: TP/EP/DP” identifies useful dimensions, but their sizes are not automatically independent factors whose product gives the GPU count. Groups can reuse the same ranks for different layer types; pipeline stages add another placement dimension.
+
+| Strategy | What is distributed | Main use and cost |
+| --- | --- | --- |
+| Tensor parallelism (TP) | Weight matrices and their computation within layers | Fits large layers and reduces per-rank work; adds frequent collectives |
+| Ordinary data parallelism (DP) | Independent requests across complete logical model replicas | Scales capacity; duplicates model allocations and keeps separate KV pools |
+| Data-parallel attention (DPA) | Requests across attention groups, each owning its requests’ KV state | Reduces attention/KV duplication in suitable layouts; other layers can remain coordinated |
+| Expert parallelism (EP) | Routed experts across ranks | Exploits MoE sparsity; adds token dispatch/combine and sensitivity to routing imbalance |
+| Pipeline parallelism (PP) | Consecutive model layers across stages | Fits models across more devices; adds stage transfers and pipeline bubbles |
+| Context parallelism (CP) | A request’s sequence work and/or KV state | Supports long contexts and distributes attention work; adds attention communication |
+| Sequence parallelism (SP) | Sequence positions of intermediate activations | Often complements TP to reduce replicated activation work/storage; terminology varies by engine |
+
+### TP: matrix sharding and collective latency
+
+TP partitions matrices, including matrices inside experts when configured. In a common transformer implementation, column-parallel projections produce output shards and row-parallel projections combine partial sums with an all-reduce. Some paths use all-gather or reduce-scatter instead. There is no universal rule that every column-parallel operation needs an all-gather or that exactly one all-reduce occurs per layer.
+
+At low batch size, spreading weight reads across more GPUs can shorten decode steps. The gain must exceed collective latency and any kernel-efficiency loss. NVLink helps, but “TP8 fits within a node” does not establish that TP8 is optimal. At higher demand, smaller TP groups plus more replicas may produce better fleet throughput.
+
+### DPA, MLA and the actual KV layout
+
+MLA means **Multi-head Latent Attention**. Its compressed latent KV representation is shared across query heads, so it cannot be split by KV head in the same way as conventional multi-head attention. With ordinary TP, implementations can duplicate that latent cache across ranks even while sharding projections or query-head computation.
+
+DPA instead assigns different requests to different attention groups. Replicated attention weights do **not** mean every group stores every request’s KV cache. In a hybrid layout, attention can still use TP within each group. [Ray’s DPA guide](https://docs.ray.io/en/latest/serve/llm/architecture/serving-patterns/data-parallel.html) explains why this is particularly useful for MLA and why GQA KV-head counts constrain head-wise sharding too.
+
+For MHA with sufficient KV heads, TP can partition the heads and approximately divide the corresponding per-token KV storage. For GQA/MQA, replication may appear once TP exceeds the available KV heads. Context parallelism introduces another way to partition KV state. “Every rank holds identical KV” and “KV memory always divides by TP size” are therefore both too broad without the model and cache layout.
+
+### EP, WideEP and communication backends
+
+EP places different routed experts on different ranks. Tokens are dispatched to their selected experts and their outputs combined. DeepSeek-V3, for example, has 256 routed experts and selects eight per token; shared experts are a separate component. Experts can also be tensor-sharded in hybrid TP/EP layouts, so EP does not inherently require every GPU to hold complete experts or every non-expert layer to be fully replicated.
+
+A common design combines DP attention with EP across the participating ranks: requests stay local for attention and exchange tokens for the MoE layers. The [SGLang large-scale EP design](https://www.lmsys.org/blog/2025-05-05-large-scale-ep/) shows how layer-specific layouts and PD fit together. [vLLM’s EP documentation](https://docs.vllm.ai/en/stable/serving/expert_parallel_deployment/) describes its own group construction; flag meanings and group sizes must be read for the chosen engine.
+
+**WideEP** extends expert distribution over a larger group. An NVL72 system provides a 72-GPU NVLink domain, making wider groups practical; WideEP is not defined as exactly 72 GPUs. It can also span nodes, where the scale-out fabric matters. NVIDIA’s [NVL72 study](https://developer.nvidia.com/blog/scaling-large-moe-models-with-wide-expert-parallelism-on-nvl72-rack-scale-systems/) explores this design.
+
+A larger expert pool does not automatically fix hot experts. Rank balance depends on token routing, expert placement, redundant expert copies where supported, and load balancing. At low concurrency, small dispatch messages and synchronization can dominate. At larger batches, communication can be better amortized, but the slowest expert rank still matters.
+
+**DeepEP** is an [expert-parallel communication library](https://github.com/deepseek-ai/DeepEP), not another parallelism axis. It implements specialized dispatch/combine paths, including throughput-oriented and low-latency variants. NCCL supplies general collective operations; the useful comparison is the measured communication path for a particular phase and message shape.
+
+**Elastic EP** changes the coordinated worker group at runtime and redistributes experts. [vLLM’s implementation](https://vllm.ai/blog/2026-05-14-elastic-expert-parallelism) resizes through DP workers sharing an EP group. That requires coordinated reconfiguration; it differs from adding an independent full replica. A scheduler must place the ranks needed for a runnable group together, often through gang scheduling. Elastic resizing and failure recovery are related operational concerns, but one does not by itself establish the other.
+
+### Prefill parallelism and decode parallelism
+
+Prefill processes many prompt tokens together and is often compute intensive. Long-context attention, uneven prompt lengths and uncached token counts can change its bottleneck. Decode generates successive tokens, and at small batches weight bandwidth and collective latency often dominate. As concurrency and context grow, KV reads, attention compute and expert routing can become limiting.
+
+**Prefill context parallelism (PCP)** distributes a long prompt’s query-token work. Ranks exchange the KV information or partial attention results needed for correct attention. **Decode context parallelism (DCP)** distributes existing context/KV state and combines partial attention results for new queries. This can reduce duplicated KV storage and per-rank reads while adding communication. The [vLLM CP guide](https://docs.vllm.ai/en/stable/serving/context_parallel_deployment/) distinguishes these phase-specific designs. Its DCP terminology and group construction should not be assumed to apply identically to every engine.
+
+SP also uses the sequence dimension, but often refers to activation sharding around TP operations. Long-context attention distribution is more precisely described by the implemented CP algorithm. Neither SP nor CP starts at a universal 32k-token threshold; model limits, memory and communication determine when it helps.
+
+PD permits independent choices for these phases. Different prefill and decode layouts also require a KV transfer path that supports the resulting ownership and cache formats. Separate pools alone do not make arbitrary layouts interoperable.
+
+### DWDP: move expert weights to the request
+
+[Distributed Weight Data Parallelism (DWDP)](https://arxiv.org/abs/2604.01621) explores a different MoE trade-off: each GPU preserves data-parallel execution, while expert weights are distributed across peers and missing weights are fetched on demand. Instead of dispatching tokens through synchronized EP collectives, it fetches weights and uses asynchronous prefetch to manage that cost. The paper evaluates DeepSeek-R1 on GB200 NVL72. It is a research design to assess against remote-weight traffic and local memory needs, not a setting measured in my deployments.
+
+## Choose an objective before choosing a layout
+
+“Low latency”, “high throughput” and “high concurrency” impose different constraints. Concurrency counts active requests; throughput counts completed work per unit time. A larger queue can raise concurrency while making the service worse.
+
+| Requirement | Candidate changes to evaluate | Evidence needed |
+| --- | --- | --- |
+| Short first-token delay | More prefill capacity, prompt-aware scheduling, PCP for long prompts | Tail TTFT including queueing and PD handoff |
+| Fast interactive decoding | Wider TP where weight traffic dominates; low-latency collectives | Per-user token rate and tail ITL at target load |
+| High throughput within latency targets | Batching, more replicas, DPA/EP for suitable MoE models | Successful output tokens/s/GPU while meeting both latency targets |
+| High concurrency or long sessions | More KV capacity, DPA/CP, cache-aware routing | Resident KV usage, eviction behaviour and tail latency |
+| Sparse MoE or sparse attention | Measured routing, expert placement, attention/indexer tuning | Real expert skew, indexer cost, stored KV versus bytes actually read |
+
+Sparse attention can read selected KV entries while still storing a much larger context and scanning index metadata. Reduced attention FLOPs therefore do not imply the same reduction in KV capacity or end-to-end latency.
+
+This is the useful connection to [Together Compiler (TKCC)](https://www.together.ai/blog/together-compiler-continual-compilation-for-ai-inference). The paper’s Section 4.3 and Appendix D search layer-specific layouts using memory feasibility, latency targets, hardware measurements and traffic distributions. Its results favour wider EP in some throughput regimes and higher TP in some tighter interactivity regimes. Those are workload-dependent crossover points, not a universal ranking.
+
+A useful first approximation is:
+
+```text
+phase step time ≈ sum over layers of
+                  [max(compute time, HBM read time) + exposed communication time]
+
+usable concurrency = min(memory-limited concurrency, latency-limited concurrency)
+```
+
+This approximation needs measured collective latency and bandwidth, kernel efficiency, KV layout and expert skew. Overlap, uneven requests and scheduling can change the result. A hardware-spec roofline is a starting bound; a production replay tests whether the implementation reaches it. TKCC’s persistent measurement engines make repeated optimization cheaper, while real traffic exposes effects that random kernel inputs can miss.
+
+For my next comparisons, I would prune layouts that cannot fit weights plus working memory and KV state, measure the promising candidates under explicit TTFT/ITL targets, then repeat as prompt lengths, output lengths, prefix-cache reuse or routing distributions change. The measurements below establish the current baseline.
+
+## The measured deployments
 
 | Deployment | Layout | Serving GPUs | Cold 8k/1k sweep |
 | --- | --- | --- | --- |
@@ -28,7 +132,7 @@ The single TP8 aggregated layout is still a future experiment. Its potential adv
 
 All three used Dynamo 1.6.0, SGLang 0.5.21, the same pinned GLM-5.3 NVFP4 checkpoint and FP8 KV cache. The checkpoint was `RadixArk/GLM-5.3-NVFP4`, revision `6e389189d564d9d3e4ea7fa284fe91f136d8ae2a`. Their memory budgets, scheduler limits and some kernel/backend settings differed. PD also ran on another cluster. This is a comparison of tested deployments, not an experiment that isolates topology as the only variable.
 
-## TP, DP and DPA: three different things
+### How TP, DP and DPA map to these experiments
 
 **Tensor parallelism (TP)** distributes model computation across a GPU group. **Ordinary data parallelism (DP)** serves independent requests using separate complete model replicas.
 
@@ -46,7 +150,7 @@ That is **one TP4 engine with four attention groups**, not four complete model c
 
 The PD prefill workers used TP4/DPA4 and explicitly configured EP4; the decoder used TP8/DPA8. The AGG configuration did not enable that same prefill EP/backend combination. This is another reason not to credit every performance difference to topology alone.
 
-## First, make long context work
+### First, make long context work
 
 My initial target was inputs above 500k tokens while keeping PD prefill at TP4. The recipe-based starting configuration produced a KV pool of only about **328k tokens per rank** in my environment.
 
@@ -58,7 +162,7 @@ I validated a **510,012-token input** and a selected **4,000-request WEKA replay
 
 The same PD deployment completed Terminal-Bench with **72/89 tasks solved (80.9%)**. That score belongs to the model, agent harness and serving configuration together. Five agent timeouts remained scored failures. It does not prove that topology tuning improved model accuracy, and it is not an AGG quality score.
 
-## Context capacity also needs a correctness check
+### Context capacity also needs a correctness check
 
 [Cloudflare’s GLM-5.3 incident report](https://blog.cloudflare.com/kv-cache-exposure-remediation/) shows why this matters beyond capacity. A prefill pool smaller than the advertised context exposed an SGLang rejection-path bug: decode consumed stale KV pages and returned another request’s data. Successful HTTP responses did not establish correctness.
 
@@ -66,7 +170,7 @@ Our PD pools exceeded the configured cap, but that alone does not prove isolatio
 
 My follow-up checks are boundary rejection, cancellation during transfer, and controlled cross-request markers alongside output validation. Those tests remain separate from the successful replay and throughput results reported here.
 
-## Use a cold baseline to compare performance
+### Use a cold baseline to compare performance
 
 The WEKA replay had substantial prefix-cache reuse and limited session concurrency. I used a separate cold test to measure the serving curve:
 
@@ -79,7 +183,7 @@ The 1×TP4 and PD sweeps each completed **1,088 measured requests**. The 2×TP4 
 
 For 2×TP4, I verified eight distinct GPUs: four on NUMA0 and four on NUMA1. Both workers handled requests at every point; their prompt-token shares were approximately 50/50 at C64, C128 and C256. Those counter windows include warmups.
 
-## Compare at the same total concurrency first
+### Compare at the same total concurrency first
 
 At **C128**, the measured results were:
 
@@ -104,7 +208,7 @@ Adding the second TP4 replica increased C128 throughput by **71%**, reduced TTFT
 
 PD still delivered **1.86× the aggregate output** of 2×TP4 and much faster decoding: **94 versus 34 tokens/s/user**. But it used twenty GPUs instead of eight, and its TTFT was not better at this operating point.
 
-## Median TTFT and tail TTFT tell different stories
+### Median TTFT and tail TTFT tell different stories
 
 With one TP4 replica, median TTFT was lower than PD at every tested concurrency, but p95 became higher from C8 onward. Adding the second replica changed that comparison: at C128, **2×TP4 had lower TTFT at both p50 and p95 than PD**, while PD retained much lower decode intervals.
 
@@ -116,7 +220,7 @@ So “PD has better latency” is too broad. The answer depends on which latency
 
 Low-concurrency points have only 32 measured requests. Their tails are a snapshot, not a contractual guarantee.
 
-## Then compare approximately equal load per replica
+### Then compare approximately equal load per replica
 
 C128 across two replicas is not the same demand per engine as C128 on one. A second useful comparison is **1×TP4 at C128 versus 2×TP4 at C256**, where approximate per-replica concurrency matches.
 
@@ -132,7 +236,7 @@ That is **1.99× aggregate throughput**, nearly unchanged efficiency and similar
 
 There is still a cost to pushing demand. Within 2×TP4, going from C128 to C256 added only **17% throughput**, while TTFT p95 nearly doubled and ITL p95 rose **73%**. C256 reaches configured total MRR, not a latency-qualified operating limit. No latency SLA has been agreed.
 
-## Read the serving envelope
+### Read the serving envelope
 
 [![GLM-5.3 serving envelope for three tested deployments, comparing mean per-user decode speed with output throughput per serving GPU. Labels show request concurrency.](./glm53-topology-envelope.png)](./glm53-topology-envelope.png)
 
@@ -142,7 +246,7 @@ The envelope makes the distinction visible: extra replicas can extend total serv
 
 For a workload that needs fast interactive decoding, PD’s measured decode rate matters. For one prioritising throughput per GPU, the AGG points matter. Neither consideration removes the need to meet first-token and context requirements.
 
-## More replicas do not extend one request’s context
+### More replicas do not extend one request’s context
 
 Both AGG configurations retained about **396k GPU KV tokens per rank**, despite a configured 524,288-token context cap. The second replica added independent capacity; it did not combine two rank-local pools for a longer request. Greater-than-500k inputs remain validated for PD only.
 
@@ -154,7 +258,7 @@ MRR is also a scheduler limit, not guaranteed usable capacity:
 
 KV capacity can bind before the configured request limit as prompts grow. A successful 8k/1k sweep is not evidence that the same concurrency can run near the context cap.
 
-## Why this differs from scaling a typical web service
+### Why this differs from scaling a typical web service
 
 A new LLM replica loads another complete **logical model**, with its own scheduling and KV state. Some tensors are sharded; others are replicated according to the parallelism settings. Two TP4 engines do not mean exactly twice every allocation, but they do require two logical model instances.
 
@@ -164,7 +268,7 @@ Host RAM is separate from GPU HBM too. The first lab worker had a 1 TiB host lim
 
 These measured deployments therefore differ in more than replica count. PD also uses different stage-specific memory, MRR and backend settings. Per-GPU normalization describes an efficiency metric; it does not make those configurations experimentally identical.
 
-## Placement is only the beginning of the PD path
+### Placement is only the beginning of the PD path
 
 [llm-d’s GKE study](https://llm-d.ai/blog/topology-as-an-end-to-end-contract) connects device allocation, transport verification and router pairing. A matched GPU/NIC allocation does not prove which path a live KV transfer uses. Their UCX/NIXL stack can silently fall back to TCP.
 
@@ -187,7 +291,7 @@ Next is **one aggregated TP8 instance on the same eight-GPU node**, with a compa
 
 Wider expert parallelism with DPA is another coordinated design, not simply two independent replicas sharing weights. It needs validation for the model, quantization, kernels and pinned runtime. AGG quality evaluation is also separate from the performance results above.
 
-The practical lesson is to compare context, concurrency, first-token delay, decode speed and the entire GPU budget together. A topology earns its place by meeting the workload’s requirements, not by winning one peak-throughput number.
+The next experiment should therefore vary both decisions explicitly: AGG or PD placement, then the parallelism layout within each phase. I will compare context capacity, latency-qualified concurrency, first-token delay, decode speed and the entire GPU budget together.
 
 <details>
 <summary>Earlier historical GLM-5.2 comparison</summary>
